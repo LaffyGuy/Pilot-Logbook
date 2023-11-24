@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Pilot Logbook</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="name_is_empty">Name is empty</string>
+    <string name="last_name_is_empty">Last name is empty</string>
+    <string name="email_is_empty">Email is empty</string>
+    <string name="password_is_empty">Password is empty</string>
+    <string name="repeat_password_mismatch">Password mismatch</string>
+
+</resources>

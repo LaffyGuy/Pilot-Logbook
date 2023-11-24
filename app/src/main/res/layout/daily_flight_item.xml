@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:ignore="MissingDefaultResource">
+
+    <TableLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TableRow>
+
+            <LinearLayout
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_tv_daily_flight_log_table"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tvDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:text="DATE"
+                    android:textSize="12sp"/>
+
+            </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bg_tv_daily_flight_log_table">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:background="@drawable/bg_tv_daily_flight_log_table">
+
+                        <TextView
+                            android:id="@+id/tvDeparturePlace"
+                            android:layout_width="40dp"
+                            android:layout_height="wrap_content"
+                            android:text="PLACE"
+                            android:textSize="12sp"
+                            android:layout_marginStart="2dp"
+                            android:layout_marginEnd="2dp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/tvDepartureTime"
+                            android:layout_width="30dp"
+                            android:layout_height="wrap_content"
+                            android:text="TIME"
+                            android:textSize="12sp"
+                            android:layout_marginEnd="2dp"
+                            android:layout_marginStart="2dp"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bg_tv_daily_flight_log_table">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:background="@drawable/bg_tv_daily_flight_log_table">
+
+                        <TextView
+                            android:id="@+id/tvArrivalPlace"
+                            android:layout_width="40dp"
+                            android:layout_height="wrap_content"
+                            android:text="PLACE"
+                            android:textSize="12sp"
+                            android:layout_marginEnd="2dp"
+                            android:layout_marginStart="2dp"/>
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/tvArrivalTime"
+                            android:layout_width="30dp"
+                            android:layout_height="wrap_content"
+                            android:text="TIME"
+                            android:textSize="12sp"
+                            android:layout_marginStart="2dp"
+                            android:layout_marginEnd="2dp"/>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bg_tv_daily_flight_log_table">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:background="@drawable/bg_tv_daily_flight_log_table">
+
+                        <TextView
+                            android:id="@+id/tvAircrafyModel"
+                            android:layout_width="42dp"
+                            android:layout_height="wrap_content"
+                            android:text="MODEL"
+                            android:textSize="12sp"
+                            android:layout_marginStart="2dp"
+                            android:layout_marginEnd="2dp"/>
+
+                    </LinearLayout>
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/tvAircraftRegistration"
+                            android:layout_width="50dp"
+                            android:layout_height="wrap_content"
+                            android:text="REGISTRATION"
+                            android:textSize="12sp"
+                            android:layout_marginEnd="2dp"
+                            android:layout_marginStart="2dp"/>
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bg_tv_daily_flight_log_table">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:background="@drawable/bg_tv_daily_flight_log_table">
+
+                        <TextView
+                            android:id="@+id/tvSinglePilotTimeSe"
+                            android:layout_width="40dp"
+                            android:layout_height="wrap_content"
+                            android:text="PLACE"
+                            android:textSize="12sp"
+                            android:layout_marginEnd="2dp"
+                            android:layout_marginStart="2dp"/>
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/tvSinglePilotTimeMe"
+                            android:layout_width="30dp"
+                            android:layout_height="wrap_content"
+                            android:text="TIME"
+                            android:textSize="12sp"
+                            android:layout_marginStart="2dp"
+                            android:layout_marginEnd="2dp"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center|top"
+                android:background="@drawable/bg_tv_daily_flight_log_table">
+
+                <TextView
+                    android:id="@+id/tvMultiPilotTime"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:text="MULTI PILOT TIME"
+                    android:textSize="11sp"
+                    android:gravity="center|top" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:background="@drawable/bg_tv_daily_flight_log_table">
+
+                <TextView
+                    android:id="@+id/tvTotalTimeOfFlight"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:text="TOTAL TIME"
+                    android:textSize="11sp"
+                    android:gravity="center|top" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_tv_daily_flight_log_table">
+
+                <TextView
+                    android:id="@+id/tvPickName"
+                    android:layout_width="42dp"
+                    android:layout_height="match_parent"
+                    android:text="PIC NAME"
+                    android:textSize="12sp"
+                    android:gravity="center|top"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginEnd="2dp"/>
+
+            </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bg_tv_daily_flight_log_table">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:background="@drawable/bg_tv_daily_flight_log_table">
+
+                        <TextView
+                            android:id="@+id/tvLandingsDay"
+                            android:layout_width="25dp"
+                            android:layout_height="wrap_content"
+                            android:text="DAY"
+                            android:textSize="12sp"
+                            android:layout_marginStart="2dp"
+                            android:layout_marginEnd="2dp"/>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/tvLandingsNight"
+                            android:layout_width="38dp"
+                            android:layout_height="wrap_content"
+                            android:text="NIGHT"
+                            android:textSize="12sp"
+                            android:layout_marginEnd="2dp"
+                            android:layout_marginStart="2dp"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bg_tv_daily_flight_log_table">
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:background="@drawable/bg_tv_daily_flight_log_table">
+
+                        <TextView
+                            android:id="@+id/tvOperationalConditionTimeNight"
+                            android:layout_width="35dp"
+                            android:layout_height="wrap_content"
+                            android:text="NIGHT"
+                            android:textSize="12sp"
+                            android:layout_marginEnd="2dp"
+                            android:layout_marginStart="2dp"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/tvOperationalConditionTimeIFR"
+                            android:layout_width="25dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="2dp"
+                            android:layout_marginEnd="2dp"
+                            android:text="IFR"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bg_tv_daily_flight_log_table">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:background="@drawable/bg_tv_daily_flight_log_table">
+
+                        <TextView
+                            android:id="@+id/tvPilotFunctionTimePilotInComand"
+                            android:layout_width="48dp"
+                            android:layout_height="wrap_content"
+                            android:text="PILOT-IN\n-COMAND"
+                            android:textSize="10sp"
+                            android:layout_marginEnd="2dp"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/tvPilotFunctionTimeCoPilot"
+                            android:layout_width="45dp"
+                            android:layout_height="wrap_content"
+                            android:text="CO-PILOT"
+                            android:textSize="10sp"
+                            android:layout_marginStart="2dp"/>
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:background="@drawable/bg_tv_daily_flight_log_table">
+
+                        <TextView
+                            android:id="@+id/tvPilotFunctionTimeDual"
+                            android:layout_width="28dp"
+                            android:layout_height="wrap_content"
+                            android:text="DUAL"
+                            android:textSize="10sp"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginStart="5dp"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/tvPilotFunctionTimeInstructor"
+                            android:layout_width="40dp"
+                            android:layout_height="wrap_content"
+                            android:text="INSTRUCTOR"
+                            android:textSize="10sp"
+                            android:layout_marginStart="5dp"/>
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bg_tv_daily_flight_log_table">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:background="@drawable/bg_tv_daily_flight_log_table">
+
+                        <TextView
+                            android:id="@+id/tvSyntheticTrainingDevicesSessionDate"
+                            android:layout_width="40dp"
+                            android:layout_height="wrap_content"
+                            android:text="DATE"
+                            android:layout_margin="2dp"
+                            android:textSize="10sp"
+                            android:layout_marginEnd="2dp"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/tvSyntheticTrainingDevicesSessionType"
+                            android:layout_width="30dp"
+                            android:layout_height="wrap_content"
+                            android:text="TYPE"
+                            android:layout_margin="2dp"
+                            android:textSize="10sp"
+                            android:layout_marginStart="2dp"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:background="@drawable/bg_tv_daily_flight_log_table">
+
+                        <TextView
+                            android:id="@+id/tvSyntheticTrainingDevicesSessionTotalTimeOfSession"
+                            android:layout_width="70dp"
+                            android:layout_height="wrap_content"
+                            android:text="TOTAL TIME\n OF SESSION"
+                            android:layout_margin="2dp"
+                            android:textSize="10sp"
+                            android:layout_marginStart="2dp"/>
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_tv_daily_flight_log_table">
+
+                <TextView
+                    android:id="@+id/tvRemarksAndEndorsements"
+                    android:layout_width="120dp"
+                    android:layout_height="match_parent"
+                    android:text="REMARKS AND ENDORSEMENTS"
+                    android:gravity="center|top"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"/>
+
+            </LinearLayout>
+
+
+
+        </TableRow>
+
+
+
+
+    </TableLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
