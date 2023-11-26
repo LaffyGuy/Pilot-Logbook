@@ -1,6 +1,8 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.AppCompat.PilotLogbook" parent="Theme.AppCompat.DayNight.NoActionBar"/>
+    <style name="Theme.AppCompat.PilotLogbook" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/black</item>
+    </style>
 
 
     <style name="Theme.Starting" parent="Theme.SplashScreen">

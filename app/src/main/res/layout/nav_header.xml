@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="176dp"
+    android:gravity="bottom"
+    android:background="@color/grey_blue"
+    android:orientation="vertical">
+
+<!--    <com.google.android.material.imageview.ShapeableImageView-->
+<!--        android:id="@+id/imageView"-->
+<!--        android:layout_width="100sp"-->
+<!--        android:layout_height="100sp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        tools:src="@drawable/ic_start_flight"-->
+<!--        android:layout_marginStart="40dp"-->
+<!--        app:shapeAppearanceOverlay="@style/shapeImageView"-->
+<!--        android:scaleType="centerCrop"-->
+<!--        android:layout_marginBottom="10dp"/>-->
+
+    <ImageView
+        android:id="@+id/accountIcon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ic_start_flight"
+        android:layout_marginStart="35dp"
+        android:layout_marginBottom="10dp"/>
+
+    <TextView
+        android:id="@+id/userNameAndLastName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Aga Aga"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_gravity="start"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"/>
+</LinearLayout>

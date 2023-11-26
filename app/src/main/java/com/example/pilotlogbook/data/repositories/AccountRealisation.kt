@@ -15,6 +15,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
 class AccountRealisation(private val db: PilotLogBookDataBase, private val appSettings: AppSettings): AccountRepository {
+
     override suspend fun isSignedIn(): Boolean {
         return appSettings.getCurrentAccountId() != AppSettings.NO_ACCOUNT_ID
     }
@@ -34,8 +35,6 @@ class AccountRealisation(private val db: PilotLogBookDataBase, private val appSe
         createAccount(signUp)
     }
 
-
-
     private suspend fun createAccount(signUp: SignUp) {
          try {
              val entity = AccountEntity.fromSignUp(signUp)
@@ -47,7 +46,7 @@ class AccountRealisation(private val db: PilotLogBookDataBase, private val appSe
          }
     }
 
-    override suspend fun findAccountById(id: Int): Flow<Account?> {
+    override fun findAccountById(id: Int): Flow<Account?> {
         return db.getAccountDao().findAccountById(id).map { accountEntity -> accountEntity?.toAccount() }
     }
 }

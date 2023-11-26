@@ -15,6 +15,6 @@ interface AccountRepository {
 
     suspend fun signUp(signUp: SignUp)
 
-    suspend fun findAccountById(id: Int): Flow<Account?>
+    fun findAccountById(id: Int): Flow<Account?>
 
 }
