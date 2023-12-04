@@ -49,4 +49,9 @@ class AccountRealisation(private val db: PilotLogBookDataBase, private val appSe
     override fun findAccountById(id: Int): Flow<Account?> {
         return db.getAccountDao().findAccountById(id).map { accountEntity -> accountEntity?.toAccount() }
     }
+
+    override suspend fun logOut() {
+        delay(1000)
+        appSettings.setCurrentAccountId(AppSettings.NO_ACCOUNT_ID)
+    }
 }

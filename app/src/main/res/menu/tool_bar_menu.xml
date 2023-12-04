@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
         <item
-            android:id="@+id/addDailyFlightFragment"
+            android:id="@+id/addDailyFlightFragmentToolBar"
             android:icon="@drawable/ic_add_new_daily_flight_log"
             android:title="Add Daily Flight Log"
             app:showAsAction="always" />

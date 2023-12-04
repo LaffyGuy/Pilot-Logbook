@@ -7,5 +7,6 @@
     <string name="email_is_empty">Email is empty</string>
     <string name="password_is_empty">Password is empty</string>
     <string name="repeat_password_mismatch">Password mismatch</string>
+    <string name="account_already_exist">Account already exist</string>
 
 </resources>

@@ -2,47 +2,28 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/log_book_nav_graph"
-    app:startDestination="@id/signInFragment">
+    android:id="@+id/log_book_nav_graph">
 
-    <fragment
-        android:id="@+id/start_flight"
-        android:name="com.example.pilotlogbook.presentation.screens.fragments.logbook.StartFlightFragment"
-        android:label="Start Flight"
-        tools:layout="@layout/fragment_start_flight" />
-    <fragment
-        android:id="@+id/daily_flight"
-        android:name="com.example.pilotlogbook.presentation.screens.fragments.logbook.DailyFlightFragment"
-        android:label="Daily Flight"
-        tools:layout="@layout/fragment_daily_flight" >
-        <action
-            android:id="@+id/action_daily_flight_to_addDailyFlightFragment"
-            app:destination="@id/addDailyFlightFragment" />
-    </fragment>
     <fragment
         android:id="@+id/addDailyFlightFragment"
         android:name="com.example.pilotlogbook.presentation.screens.fragments.logbook.AddDailyFlightFragment"
         android:label="Add New Daily Flight"
         tools:layout="@layout/fragment_add_daily_flight" />
     <fragment
-        android:id="@+id/signInFragment"
-        android:name="com.example.pilotlogbook.presentation.screens.fragments.register.SignInFragment"
-        android:label="Sign In"
-        tools:layout="@layout/fragment_sign_in">
+        android:id="@+id/navigationViewFragment"
+        android:name="com.example.pilotlogbook.presentation.screens.fragments.logbook.NavViewFragment"
+        tools:layout="@layout/fragment_nav_view">
         <action
-            android:id="@+id/action_signInFragment_to_signUpFragment"
-            app:destination="@id/signUpFragment" />
-        <action
-            android:id="@+id/action_signInFragment_to_start_flight"
-            app:destination="@id/start_flight" />
+            android:id="@+id/action_navViewFragment2_to_addDailyFlightFragment"
+            app:destination="@id/addDailyFlightFragment" />
     </fragment>
     <fragment
-        android:id="@+id/signUpFragment"
-        android:name="com.example.pilotlogbook.presentation.screens.fragments.register.SignUpFragment"
-        android:label="Sign Up"
-        tools:layout="@layout/fragment_sign_up">
+        android:id="@+id/mainRegisterFragment"
+        android:name="com.example.pilotlogbook.presentation.screens.fragments.register.MainRegisterFragment"
+        android:label="fragment_main_register"
+        tools:layout="@layout/fragment_main_register" >
         <action
-            android:id="@+id/action_signUpFragment_to_start_flight"
-            app:destination="@id/start_flight" />
+            android:id="@+id/action_mainRegisterFragment_to_navigationViewFragment"
+            app:destination="@id/navigationViewFragment" />
     </fragment>
 </navigation>

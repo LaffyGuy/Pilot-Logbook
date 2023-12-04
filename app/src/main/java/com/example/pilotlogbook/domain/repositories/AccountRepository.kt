@@ -17,4 +17,6 @@ interface AccountRepository {
 
     fun findAccountById(id: Int): Flow<Account?>
 
+    suspend fun logOut()
+
 }

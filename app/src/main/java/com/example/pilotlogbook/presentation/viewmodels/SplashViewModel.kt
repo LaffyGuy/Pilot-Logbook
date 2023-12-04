@@ -30,7 +30,6 @@ class SplashViewModel @Inject constructor(private val accountRepository: Account
         }
     }
 
-
     private suspend fun isSignedIn(): Boolean {
         delay(2000)
         _isReady.value = false

@@ -7,7 +7,6 @@
     tools:context=".presentation.screens.fragments.logbook.StartFlightFragment">
 
 
-
     <TextView
         android:id="@+id/tvStartFlight"
         android:layout_width="wrap_content"

@@ -1,17 +1,23 @@
 package com.example.pilotlogbook.presentation.screens.fragments.register
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.navOptions
 import com.example.pilotlogbook.R
 import com.example.pilotlogbook.databinding.FragmentSignUpBinding
 import com.example.pilotlogbook.data.validation.ValidationResult
 import com.example.pilotlogbook.presentation.viewmodels.registerviewmodel.SignUpViewModel
 import com.example.pilotlogbook.data.validation.SignUp
+import com.example.pilotlogbook.utils.Constance.NO_ERROR_MESSAGE
+import com.example.pilotlogbook.utils.activityNavController
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -30,16 +36,14 @@ class SignUpFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         bindingClass.btnSignUp.setOnClickListener {
-           signUpViewModel.state.observe(viewLifecycleOwner){
-               if(it.success){
-                   findNavController().navigate(R.id.action_signUpFragment_to_start_flight)
-               }
-           }
             createAccount()
         }
 
         observeRegistrationValidation()
+
+        observeState()
 
     }
 
@@ -86,6 +90,36 @@ class SignUpFragment : Fragment() {
                     error = it.repeatPassword.error
                 }
             }
+
+            if(it.name is ValidationResult.Success && it.lastName
+                       is ValidationResult.Success && it.email
+                       is ValidationResult.Success && it.password
+                       is ValidationResult.Success && it.repeatPassword
+                       is ValidationResult.Success){
+                activityNavController().navigate(R.id.navigationViewFragment, null, navOptions {
+                    popUpTo(R.id.mainRegisterFragment){
+                        inclusive = true
+                    }
+                })
+            }
+        }
+    }
+
+    private fun observeState(){
+        signUpViewModel.state.observe(viewLifecycleOwner){
+            fillError(bindingClass.etEmail, it.emailErrorMessage)
+            Log.d("MyTag5", "Progress - ${it.showProgress}")
+
+            bindingClass.progressBar.visibility = if(it.showProgress) View.VISIBLE else View.INVISIBLE
+        }
+
+    }
+
+    private fun fillError(input: EditText, stringRes: Int){
+        if(stringRes == NO_ERROR_MESSAGE){
+            input.error = null
+        }else{
+            input.error = getString(stringRes)
         }
     }
 

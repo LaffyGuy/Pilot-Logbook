@@ -10,6 +10,7 @@ import com.example.pilotlogbook.domain.repositories.AccountRepository
 import com.example.pilotlogbook.data.validation.validatePasswordSignIn
 import com.example.pilotlogbook.data.validation.validationEmailSignIn
 import com.example.pilotlogbook.data.validation.SignInFieldState
+import com.example.pilotlogbook.domain.settings.AppSettings
 import com.example.pilotlogbook.utils.AuthException
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -17,7 +18,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class SignInViewModel @Inject constructor(private val accountRepository: AccountRepository): ViewModel() {
+class SignInViewModel @Inject constructor(private val accountRepository: AccountRepository, private val appSettings: AppSettings): ViewModel() {
 
     private var _validation = MutableLiveData<SignInFieldState>()
     val validation: LiveData<SignInFieldState> = _validation
@@ -33,6 +34,7 @@ class SignInViewModel @Inject constructor(private val accountRepository: Account
                 try {
                    val id = accountRepository.findAccountByEmailAndPassword(email, password)
                    _id.postValue(id)
+                    appSettings.setCurrentAccountId(id)
                 }catch (e: AuthException){
                     Log.d("MyTag", "Error signIn - ${e.message.toString()}")
                 }

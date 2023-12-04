@@ -1,14 +1,13 @@
-package com.example.pilotlogbook.domain.entities
+package com.example.pilotlogbook.data.validation
 
-data class DailyFlight(
-    val id: Int? = null,
+data class DailyFlightForm(
     val date: String,
     val departurePlace: String,
     val departureTime: Double,
     val arrivalPlace: String,
     val arrivalTime: Double,
-    val aircraftModel: String?,
-    val aircraftRegistration: String?,
+    val aircraftModel: String,
+    val aircraftRegistration: String,
     val singlePilotTimeSe: Double?,
     val singlePilotTimeMe: Double?,
     val multiPilotTime: Double,

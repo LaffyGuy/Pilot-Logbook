@@ -8,6 +8,7 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.viewModels
@@ -21,11 +22,12 @@ import com.example.pilotlogbook.R
 import com.example.pilotlogbook.adapter.DailyFlightAdapter
 import com.example.pilotlogbook.databinding.FragmentDailyFlightBinding
 import com.example.pilotlogbook.presentation.viewmodels.logbookviewmodel.DailyFlightViewModel
+import com.example.pilotlogbook.utils.activityNavController
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class DailyFlightFragment : Fragment() {
+class DailyFlightFragment : Fragment(), MenuProvider {
     lateinit var bindingClass: FragmentDailyFlightBinding
     private val dailyFlightViewModel by viewModels<DailyFlightViewModel>()
     lateinit var dailyFlightAdapter: DailyFlightAdapter
@@ -41,24 +43,7 @@ class DailyFlightFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val menuHost: MenuHost = requireActivity()
-
-        menuHost.addMenuProvider(object : MenuProvider{
-            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
-                menuInflater.inflate(R.menu.tool_bar_menu, menu)
-            }
-
-            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
-                return when(menuItem.itemId){
-                    R.id.addDailyFlightFragment -> {
-                        navigateToAddDailyFlightFragment()
-                        true
-                    }
-                    else -> false
-                }
-            }
-
-        }, viewLifecycleOwner)
+        requireActivity().addMenuProvider(this, viewLifecycleOwner)
 
         initDailyFlightAdapter()
 
@@ -84,7 +69,18 @@ class DailyFlightFragment : Fragment() {
     }
 
     private fun navigateToAddDailyFlightFragment(){
-        findNavController().navigate(R.id.action_daily_flight_to_addDailyFlightFragment)
+        activityNavController().navigate(R.id.addDailyFlightFragment)
+    }
+
+    override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+        menuInflater.inflate(R.menu.tool_bar_menu, menu)
+    }
+
+    override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+         when(menuItem.itemId){
+             R.id.addDailyFlightFragmentToolBar -> navigateToAddDailyFlightFragment()
+         }
+         return true
     }
 
 }

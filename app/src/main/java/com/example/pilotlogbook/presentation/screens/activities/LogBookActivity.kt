@@ -5,12 +5,17 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.TextView
 import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
@@ -22,6 +27,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.pilotlogbook.R
 import com.example.pilotlogbook.databinding.ActivityLogBookBinding
 import com.example.pilotlogbook.databinding.NavHeaderBinding
+import com.example.pilotlogbook.presentation.screens.fragments.logbook.NavViewFragment
 import com.example.pilotlogbook.presentation.viewmodels.LogBookViewModel
 import com.example.pilotlogbook.presentation.viewmodels.SplashViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -35,7 +41,6 @@ class LogBookActivity : AppCompatActivity() {
     lateinit var navHostFragment: NavHostFragment
     lateinit var navController: NavController
     private val splashViewModel by viewModels<SplashViewModel>()
-    private val logBookViewModel by viewModels<LogBookViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,27 +50,21 @@ class LogBookActivity : AppCompatActivity() {
               }
         }
 
-        splashViewModel.isSignedIn.observe(this@LogBookActivity){
-              Log.d("MyTag3", "IsSignIn- $it")
-              choosePathToFragments(it, navController)
-        }
-
         bindingClass = ActivityLogBookBinding.inflate(layoutInflater)
         setContentView(bindingClass.root)
-        setSupportActionBar(bindingClass.toolBar)
-
 
         navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView2) as NavHostFragment
         navController = navHostFragment.navController
 
-        val appBarConfiguration = AppBarConfiguration(setOf(R.id.start_flight, R.id.daily_flight), bindingClass.drawerLayout)
-        bindingClass.toolBar.setupWithNavController(navController, appBarConfiguration)
-        bindingClass.navigationView.setupWithNavController(navController)
+        splashViewModel.isSignedIn.observe(this@LogBookActivity){
+            Log.d("MyTag3", "IsSignIn- $it")
+            choosePathToFragments(it, navController)
+        }
 
-        NavigationUI.setupWithNavController(bindingClass.navigationView, navController)
+    }
 
-        getAccountInfo()
-
+    override fun onSupportNavigateUp(): Boolean {
+        return  (navController?.navigateUp() ?: false) || super.onSupportNavigateUp()
     }
 
 
@@ -73,9 +72,9 @@ class LogBookActivity : AppCompatActivity() {
         val graph = navController.navInflater.inflate(getMainNavigationGraph())
         graph.setStartDestination(
             if(isSignedIn){
-                getDailyFlightDestination()
+                getNavViewDestination()
             }else{
-                getSignInDestination()
+                getMainRegisterDestination()
             }
         )
 
@@ -85,20 +84,8 @@ class LogBookActivity : AppCompatActivity() {
 
     private fun getMainNavigationGraph() = R.navigation.log_book_nav_graph
 
-    private fun getDailyFlightDestination() = R.id.start_flight
+    private fun getNavViewDestination() = R.id.navigationViewFragment
 
-    private fun getSignInDestination() = R.id.signInFragment
-
-    private fun getAccountInfo() {
-        lifecycleScope.launch {
-            logBookViewModel.getUserNameById().collect{ account ->
-                val navigationView = bindingClass.navigationView
-                val headerBinding = NavHeaderBinding.bind(navigationView.getHeaderView(0))
-                headerBinding.userNameAndLastName.text = account?.firstName + account?.lastName
-
-            }
-        }
-    }
-
+    private fun getMainRegisterDestination() = R.id.mainRegisterFragment
 
 }

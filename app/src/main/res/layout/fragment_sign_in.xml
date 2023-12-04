@@ -7,6 +7,18 @@
     tools:context=".presentation.screens.fragments.register.SignInFragment">
 
 
+
+<!--    <androidx.appcompat.widget.Toolbar-->
+<!--        android:id="@+id/toolBar"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="50dp"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        android:background="@color/grey_blue"-->
+<!--        style="@style/Theme.AppCompat.DayNight.DarkActionBar"/>-->
+
+
     <TextView
         android:id="@+id/tvEmail"
         android:layout_width="wrap_content"
@@ -14,7 +26,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="70dp"
         android:textSize="30sp"
         android:text="SignIn Fragment"/>
 
@@ -47,7 +59,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/etPassword"
         android:layout_marginTop="50dp"
-        android:text="Done"/>
+        android:text="Log In"/>
 
     <Button
         android:id="@+id/btnSingUp"

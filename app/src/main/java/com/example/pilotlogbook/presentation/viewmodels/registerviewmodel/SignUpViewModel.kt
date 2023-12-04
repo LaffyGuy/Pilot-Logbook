@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.pilotlogbook.R
 import com.example.pilotlogbook.data.validation.ValidationResult
 import com.example.pilotlogbook.domain.repositories.AccountRepository
 import com.example.pilotlogbook.data.validation.validationEmail
@@ -14,8 +15,13 @@ import com.example.pilotlogbook.data.validation.validationPassword
 import com.example.pilotlogbook.data.validation.validationRepeatPassword
 import com.example.pilotlogbook.data.validation.RegistrationFieldState
 import com.example.pilotlogbook.data.validation.SignUp
+import com.example.pilotlogbook.domain.AccountAlreadyExistException
+import com.example.pilotlogbook.utils.Constance.NO_ERROR_MESSAGE
+import com.example.pilotlogbook.utils.requireValue
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.lang.Exception
 import javax.inject.Inject
 
@@ -36,24 +42,38 @@ class SignUpViewModel @Inject constructor(private val accountRepository: Account
 
     fun createAccount(signUp: SignUp){
         viewModelScope.launch {
-            if(checkValidation(signUp)){
-                try {
-                    accountRepository.signUp(signUp)
-                    _state.postValue(State(true))
-                }catch (e: Exception){
-                    Log.d("MyTag", "Error signUp - ${e.message.toString()}")
-                }
-            }else {
-                val registerFieldState = RegistrationFieldState(
-                    validationName(signUp.firstName),
-                    validationLastName(signUp.lastName),
-                    validationEmail(signUp.email),
-                    validationPassword(signUp.password),
-                    validationRepeatPassword(signUp.password, signUp.repeatPassword)
-                )
-                _state.postValue(State(false))
-                _validation.postValue(registerFieldState)
+            withContext(Dispatchers.Main){
+                showProgress()
             }
+            try {
+                if(checkValidation(signUp)){
+                    accountRepository.signUp(signUp)
+                    val registerFieldState = RegistrationFieldState(
+                        validationName(signUp.firstName),
+                        validationLastName(signUp.lastName),
+                        validationEmail(signUp.email),
+                        validationPassword(signUp.password),
+                        validationRepeatPassword(signUp.password, signUp.repeatPassword)
+                    )
+                    _validation.postValue(registerFieldState)
+                }else {
+                    val registerFieldState = RegistrationFieldState(
+                        validationName(signUp.firstName),
+                        validationLastName(signUp.lastName),
+                        validationEmail(signUp.email),
+                        validationPassword(signUp.password),
+                        validationRepeatPassword(signUp.password, signUp.repeatPassword)
+                    )
+                    _validation.postValue(registerFieldState)
+                }
+            }catch (e: AccountAlreadyExistException){
+                 processAccountAlreadyExistException()
+            }finally {
+                withContext(Dispatchers.Main){
+                    hideProgress()
+                }
+            }
+
         }
 
     }
@@ -74,7 +94,21 @@ class SignUpViewModel @Inject constructor(private val accountRepository: Account
     }
 
     data class State(
-        val success: Boolean
-    )
+        val emailErrorMessage: Int = NO_ERROR_MESSAGE,
+        val signUpProgress: Boolean = false
+    ){
+        val showProgress: Boolean = signUpProgress
+    }
+
+    private fun processAccountAlreadyExistException(){
+        _state.value = _state.requireValue().copy(emailErrorMessage = R.string.account_already_exist)
+    }
+
+    private fun showProgress(){
+        _state.value = State(signUpProgress = true)
+    }
+    private fun hideProgress(){
+        _state.value = _state.requireValue().copy(signUpProgress = false)
+    }
 
 }
