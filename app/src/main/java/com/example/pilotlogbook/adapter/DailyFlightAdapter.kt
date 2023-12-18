@@ -16,30 +16,30 @@ class DailyFlightAdapter: RecyclerView.Adapter<DailyFlightAdapter.DailyFlightVie
         val binding = DailyFlightItemBinding.bind(itemView)
         fun bind(item: DailyFlight){
               with(binding){
-                  tvDate.text = item.date
-                  tvDeparturePlace.text = item.departurePlace
-                  tvDepartureTime.text = item.departureTime.toString()
-                  tvArrivalPlace.text = item.arrivalPlace
-                  tvArrivalTime.text = item.arrivalTime.toString()
-                  tvAircrafyModel.text = item.aircraftModel
-                  tvAircraftRegistration.text = item.aircraftRegistration
-                  tvSinglePilotTimeSe.text = item.singlePilotTimeSe.toString()
-                  tvSinglePilotTimeMe.text = item.singlePilotTimeMe.toString()
-                  tvMultiPilotTime.text = item.multiPilotTime.toString()
-                  tvTotalTimeOfFlight.text = item.totalTimeOfFlight.toString()
-                  tvPickName.text = item.picName
-                  tvLandingsDay.text = item.landingsDay.toString()
-                  tvLandingsNight.text = item.landingsNight.toString()
-                  tvOperationalConditionTimeNight.text = item.operationalConditionTimeNight.toString()
-                  tvOperationalConditionTimeIFR.text = item.operationalConditionTimeIfr.toString()
-                  tvPilotFunctionTimePilotInComand.text = item.pilotFunctionTimePilotInComand.toString()
-                  tvPilotFunctionTimeCoPilot.text = item.pilotFunctionTimePilotCoPilot.toString()
-                  tvPilotFunctionTimeDual.text = item.pilotFunctionTimePilotDual.toString()
-                  tvPilotFunctionTimeInstructor.text = item.pilotFunctionTimePilotInstructor.toString()
-                  tvSyntheticTrainingDevicesSessionDate.text = item.syntheticTrainingDevicesSessionDate.toString()
-                  tvSyntheticTrainingDevicesSessionType.text = item.syntheticTrainingDevicesSessionType
-                  tvSyntheticTrainingDevicesSessionTotalTimeOfSession.text = item.syntheticTrainingDevicesSessionTotalTimeOfSession.toString()
-                  tvRemarksAndEndorsements.text = item.remarksAndEndorsements
+//                  tvDate.text = item.date
+//                  tvDeparturePlace.text = item.departurePlace
+//                  tvDepartureTime.text = item.departureTime.toString()
+//                  tvArrivalPlace.text = item.arrivalPlace
+//                  tvArrivalTime.text = item.arrivalTime.toString()
+//                  tvAircrafyModel.text = item.aircraftModel
+//                  tvAircraftRegistration.text = item.aircraftRegistration
+//                  tvSinglePilotTimeSe.text = item.singlePilotTimeSe.toString()
+//                  tvSinglePilotTimeMe.text = item.singlePilotTimeMe.toString()
+//                  tvMultiPilotTime.text = item.multiPilotTime.toString()
+//                  tvTotalTimeOfFlight.text = item.totalTimeOfFlight.toString()
+//                  tvPickName.text = item.picName
+//                  tvLandingsDay.text = item.landingsDay.toString()
+//                  tvLandingsNight.text = item.landingsNight.toString()
+//                  tvOperationalConditionTimeNight.text = item.operationalConditionTimeNight.toString()
+//                  tvOperationalConditionTimeIFR.text = item.operationalConditionTimeIfr.toString()
+//                  tvPilotFunctionTimePilotInComand.text = item.pilotFunctionTimePilotInComand.toString()
+//                  tvPilotFunctionTimeCoPilot.text = item.pilotFunctionTimePilotCoPilot.toString()
+//                  tvPilotFunctionTimeDual.text = item.pilotFunctionTimePilotDual.toString()
+//                  tvPilotFunctionTimeInstructor.text = item.pilotFunctionTimePilotInstructor.toString()
+//                  tvSyntheticTrainingDevicesSessionDate.text = item.syntheticTrainingDevicesSessionDate.toString()
+//                  tvSyntheticTrainingDevicesSessionType.text = item.syntheticTrainingDevicesSessionType
+//                  tvSyntheticTrainingDevicesSessionTotalTimeOfSession.text = item.syntheticTrainingDevicesSessionTotalTimeOfSession.toString()
+//                  tvRemarksAndEndorsements.text = item.remarksAndEndorsements
 
               }
         }

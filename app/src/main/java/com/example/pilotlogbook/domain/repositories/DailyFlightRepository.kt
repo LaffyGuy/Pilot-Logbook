@@ -1,14 +1,17 @@
 package com.example.pilotlogbook.domain.repositories
 
-import com.example.pilotlogbook.data.room.entities.account.AccountEntity
+import androidx.lifecycle.LiveData
 import com.example.pilotlogbook.domain.entities.DailyFlight
-import com.example.pilotlogbook.data.room.entities.dailyflight.DailyFlightEntity
 import com.example.pilotlogbook.data.validation.DailyFlightForm
+import com.example.pilotlogbook.domain.Result
 import kotlinx.coroutines.flow.Flow
 
 interface DailyFlightRepository {
 
-    fun getAllDaileFlightLog(): Flow<List<DailyFlight>>
+//    fun getAllDaileFlightLog(): Flow<Result<List<DailyFlight>>>
+
+
+    fun getAllDaileFlightLog(): LiveData<List<DailyFlight>>
 
     suspend fun addDailyFlightLog(dailyFlightForm: DailyFlightForm)
 

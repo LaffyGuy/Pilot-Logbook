@@ -18,7 +18,7 @@ class NavViewFragment : Fragment() {
     lateinit var bindingClass: FragmentNavViewBinding
     lateinit var navHostFragment: NavHostFragment
     lateinit var navController: NavController
-    private val topLevelDestination = setOf(R.id.dailyFlightFragment, R.id.startFlightFragment)
+    private val topLevelDestination = setOf(R.id.dailyFlightFragment, R.id.startFlightFragment, R.id.profileFragment)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

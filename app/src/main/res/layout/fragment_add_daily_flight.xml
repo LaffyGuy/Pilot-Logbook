@@ -1,262 +1,501 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".presentation.screens.fragments.logbook.AddDailyFlightFragment">
+    tools:context=".presentation.screens.fragments.logbook.AddDailyFlightFragment"
+    android:orientation="vertical"
+    android:background="@color/grey_blue">
 
-    <EditText
-        android:id="@+id/etDate"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:hint="Date"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"/>
+    <ScrollView
+        android:id="@+id/mainScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/etDeparturePlace"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:hint="Depar Place"
-        app:layout_constraintStart_toEndOf="@id/etDate"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"/>
-
-    <EditText
-        android:id="@+id/etDepartureTime"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:hint="Depar Time"
-        app:layout_constraintStart_toEndOf="@id/etDeparturePlace"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"/>
-
-    <EditText
-        android:id="@+id/etArrivalPlace"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:hint="Arrival Place"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etDate"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"/>
-
-    <EditText
-        android:id="@+id/etArrivalTime"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:hint="Arrival Time"
-        app:layout_constraintStart_toEndOf="@id/etArrivalPlace"
-        app:layout_constraintTop_toBottomOf="@id/etDeparturePlace"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"/>
-
-    <EditText
-        android:id="@+id/etAircraftModel"
-        android:layout_width="130dp"
-        android:layout_height="wrap_content"
-        android:hint="Aircraft Model"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etArrivalPlace"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"/>
-
-    <EditText
-        android:id="@+id/etAircraftRegistration"
-        android:layout_width="170dp"
-        android:layout_height="wrap_content"
-        android:hint="Aircraft Registration"
-        app:layout_constraintStart_toEndOf="@id/etAircraftModel"
-        app:layout_constraintTop_toBottomOf="@id/etArrivalTime"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"/>
-
-    <EditText
-        android:id="@+id/etSinglePilotSe"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:hint="SPilot SE"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etAircraftModel"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"/>
-
-    <EditText
-        android:id="@+id/etSinglePilotMe"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:hint="SPilot ME"
-        app:layout_constraintStart_toEndOf="@id/etSinglePilotSe"
-        app:layout_constraintTop_toBottomOf="@id/etAircraftRegistration"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"/>
-
-    <EditText
-        android:id="@+id/etMultiPilotTime"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:hint="MPilot Time"
-        app:layout_constraintStart_toEndOf="@id/etSinglePilotMe"
-        app:layout_constraintTop_toBottomOf="@id/etAircraftRegistration"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"/>
-
-    <EditText
-        android:id="@+id/etTotalTimeOfFlight"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:hint="TTime Flight"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etSinglePilotSe"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"/>
-
-    <EditText
-        android:id="@+id/etPicName"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:hint="Pic Name"
-        app:layout_constraintStart_toEndOf="@id/etTotalTimeOfFlight"
-        app:layout_constraintTop_toBottomOf="@id/etSinglePilotMe"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"/>
-
-    <EditText
-        android:id="@+id/etLandingsDay"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:hint="L Day"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etTotalTimeOfFlight"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"/>
-
-    <EditText
-        android:id="@+id/etLandingsNight"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:hint="PL Night"
-        app:layout_constraintStart_toEndOf="@id/etLandingsDay"
-        app:layout_constraintTop_toBottomOf="@id/etPicName"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"/>
-
-    <EditText
-        android:id="@+id/etOperationalNight"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:hint="Oper Night"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etLandingsDay"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"/>
-
-    <EditText
-        android:id="@+id/etOperationalIfr"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:hint="Oper Ifr"
-        app:layout_constraintStart_toEndOf="@id/etOperationalNight"
-        app:layout_constraintTop_toBottomOf="@id/etLandingsNight"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"/>
-
-    <EditText
-        android:id="@+id/etPilotFunctionTimePilotInComand"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:hint="PFT Comand"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etOperationalNight"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"/>
-
-    <EditText
-        android:id="@+id/etPilotFunctionTimeCoPilot"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:hint="PFT CoPilot"
-        app:layout_constraintStart_toEndOf="@id/etPilotFunctionTimePilotInComand"
-        app:layout_constraintTop_toBottomOf="@id/etOperationalIfr"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"/>
-
-    <EditText
-        android:id="@+id/etPilotFunctionTimeDual"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:hint="PFT Dual"
-        app:layout_constraintStart_toEndOf="@id/etPilotFunctionTimeCoPilot"
-        app:layout_constraintTop_toBottomOf="@id/etOperationalIfr"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"/>
-
-    <EditText
-        android:id="@+id/etPilotFunctionTimeInstractor"
-        android:layout_width="130dp"
-        android:layout_height="wrap_content"
-        android:hint="PFT Instractor"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etPilotFunctionTimePilotInComand"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"/>
-
-    <EditText
-        android:id="@+id/etSyntheticTrainingDevicesSessionDate"
-        android:layout_width="130dp"
-        android:layout_height="wrap_content"
-        android:hint="STDS Date"
-        app:layout_constraintStart_toEndOf="@id/etPilotFunctionTimeInstractor"
-        app:layout_constraintTop_toBottomOf="@id/etPilotFunctionTimeCoPilot"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"/>
-
-    <EditText
-        android:id="@+id/etSyntheticTrainingDevicesSessionType"
-        android:layout_width="130dp"
-        android:layout_height="wrap_content"
-        android:hint="STDS Type"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etPilotFunctionTimeInstractor"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"/>
+        <LinearLayout
+            android:id="@+id/mainLl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
 
-    <EditText
-        android:id="@+id/etSyntheticTrainingDevicesSessionTotalTimeOfSession"
-        android:layout_width="130dp"
-        android:layout_height="wrap_content"
-        android:hint="STDS Session"
-        app:layout_constraintStart_toEndOf="@id/etSyntheticTrainingDevicesSessionType"
-        app:layout_constraintTop_toBottomOf="@id/etSyntheticTrainingDevicesSessionDate"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp">
 
-    <EditText
-        android:id="@+id/etRemarksAndEndorsements"
-        android:layout_width="130dp"
-        android:layout_height="wrap_content"
-        android:hint="Remarks"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etSyntheticTrainingDevicesSessionType"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"/>
+                <TextView
+                    android:id="@+id/tvDateTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add_flight_title_date"
+                    android:textSize="20sp"
+                    android:textColor="@color/add_flight_title_text_color"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"/>
 
-    <Button
-        android:id="@+id/btnAddDailyFlightLog"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add Flight Log"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="20dp"/>
+                <TextView
+                    android:id="@+id/tvDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/edit_text_without_border"
+                    android:textSize="18sp"
+                    android:text="12.12.2023"
+                    android:gravity="center_vertical"
+                    android:drawableStart="@drawable/ic_add_flight_calendar"/>
+
+            </LinearLayout>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                        <TextView
+                            android:id="@+id/tvDepartureTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/add_flight_title_departure"
+                            android:textSize="20sp"
+                            android:textColor="@color/add_flight_title_text_color" />
+
+                        <EditText
+                            android:id="@+id/etDeparturePlace"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:background="@drawable/border"
+                            android:hint="Place"
+                            android:drawableStart="@drawable/ic_add_flight_place"/>
+
+
+                        <TextView
+                            android:id="@+id/tvDepartureTime"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:background="@drawable/edit_text_without_border"
+                            android:text="Time"
+                            android:textSize="18sp"
+                            android:gravity="center_vertical"
+                            app:drawableStartCompat="@drawable/add_flight_time" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_add_flight_arrow"
+                        android:layout_gravity="center_horizontal" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvArrivalTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/add_flight_title_arrival"
+                            android:textSize="20sp"
+                            android:textColor="@color/add_flight_title_text_color" />
+
+                        <EditText
+                            android:id="@+id/etArrivalPlace"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:background="@drawable/border"
+                            android:hint="Place"
+                            android:drawableStart="@drawable/ic_add_flight_place"/>
+
+
+                        <TextView
+                            android:id="@+id/tvArrivalTime"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:background="@drawable/edit_text_without_border"
+                            android:text="Time"
+                            android:textSize="18sp"
+                            android:gravity="center_vertical"
+                            app:drawableStartCompat="@drawable/add_flight_time" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp">
+
+                <TextView
+                    android:id="@+id/tvAircraftTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add_flight_title_aircraft"
+                    android:textSize="20sp"
+                    android:textColor="@color/add_flight_title_text_color"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp" />
+
+                <EditText
+                    android:id="@+id/etAircraftModel"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/border"
+                    android:hint="Model"
+                    android:drawableStart="@drawable/ic_add_flight_model"/>
+
+
+                <EditText
+                    android:id="@+id/etAircraftRegistration"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/edit_text_without_border"
+                    android:hint="Registration"
+                    android:drawableStart="@drawable/ic_add_flight_registration" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp">
+
+                <TextView
+                    android:id="@+id/tvSinglePilotTimeTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add_flight_title_single_pilot_time"
+                    android:textSize="20sp"
+                    android:textColor="@color/add_flight_title_text_color"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp" />
+
+                <EditText
+                    android:id="@+id/etSinglePilotTimeSe"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/border"
+                    android:hint="SE"
+                    android:drawableStart="@drawable/add_flight_time"/>
+
+
+                <EditText
+                    android:id="@+id/etSinglePilotTimeMe"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/edit_text_without_border"
+                    android:hint="ME"
+                    android:drawableStart="@drawable/add_flight_time"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp">
+
+                <TextView
+                    android:id="@+id/tvMultiPilotTimeTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add_flight_title_multi_pilot_time"
+                    android:textSize="20sp"
+                    android:textColor="@color/add_flight_title_text_color"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp" />
+
+                <EditText
+                    android:id="@+id/etMultiPilotTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/border"
+                    android:hint="Time"
+                    android:drawableStart="@drawable/add_flight_time"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp">
+
+                <TextView
+                    android:id="@+id/tvTotalTimeToFlight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add_flight_title_total_time_of_flight"
+                    android:textSize="20sp"
+                    android:textColor="@color/add_flight_title_text_color"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp" />
+
+                <EditText
+                    android:id="@+id/etTotalTimeOfFlight"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/border"
+                    android:hint="Total Time Of Flight"
+                    android:drawableStart="@drawable/add_flight_time"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp">
+
+                <TextView
+                    android:id="@+id/tvPicNameTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add_flight_title_pic_name"
+                    android:textSize="20sp"
+                    android:textColor="@color/add_flight_title_text_color"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp" />
+
+                <EditText
+                    android:id="@+id/etPicName"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/border"
+                    android:hint="Time"
+                    android:drawableStart="@drawable/add_flight_time"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp">
+
+                <TextView
+                    android:id="@+id/tvLandingsTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add_flight_title_landings"
+                    android:textSize="20sp"
+                    android:textColor="@color/add_flight_title_text_color"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp" />
+
+                <EditText
+                    android:id="@+id/etLandingsDay"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/border"
+                    android:hint="Day"
+                    android:drawableStart="@drawable/ic_add_flight_landings_day"/>
+
+
+                <EditText
+                    android:id="@+id/etLandingsNight"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/edit_text_without_border"
+                    android:hint="Night"
+                    android:drawableStart="@drawable/ic_add_flight_landings_night"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp">
+
+                <TextView
+                    android:id="@+id/tvOperationalConditionTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add_flight_title_operational_condition_time"
+                    android:textSize="20sp"
+                    android:textColor="@color/add_flight_title_text_color"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp" />
+
+                <EditText
+                    android:id="@+id/etOPCNight"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/border"
+                    android:hint="Night"
+                    android:drawableStart="@drawable/ic_add_flight_landings_day"/>
+
+
+                <EditText
+                    android:id="@+id/etOPCIfr"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/edit_text_without_border"
+                    android:hint="IFR"
+                    android:drawableStart="@drawable/ic_add_flight_landings_night"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp">
+
+                <TextView
+                    android:id="@+id/tvPilotFunctionTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add_flight_title_pilot_function_time"
+                    android:textSize="20sp"
+                    android:textColor="@color/add_flight_title_text_color"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp" />
+
+                <EditText
+                    android:id="@+id/etPilotInComand"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/border"
+                    android:hint="Pilot in Comand"
+                    android:drawableStart="@drawable/ic_add_flight_person"/>
+
+
+                <EditText
+                    android:id="@+id/etCoPilot"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/border"
+                    android:hint="Co-Pilot"
+                    android:drawableStart="@drawable/ic_add_flight_co_pilot"/>
+
+                <EditText
+                    android:id="@+id/etDual"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/border"
+                    android:hint="Dual"
+                    android:drawableStart="@drawable/ic_add_flight_dual"/>
+
+
+                <EditText
+                    android:id="@+id/etInstructor"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/edit_text_without_border"
+                    android:hint="Instructor"
+                    android:drawableStart="@drawable/ic_add_flight_instructor"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp">
+
+                <TextView
+                    android:id="@+id/tvSyntheticTrainingDevicesSession"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add_flight_title_synthetic_training_devices_session"
+                    android:textSize="20sp"
+                    android:textColor="@color/add_flight_title_text_color"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp" />
+
+                <EditText
+                    android:id="@+id/etSTDSDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/border"
+                    android:hint="Date"
+                    android:drawableStart="@drawable/ic_add_flight_calendar"/>
+
+
+                <EditText
+                    android:id="@+id/etSTDSType"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/border"
+                    android:hint="Type"
+                    android:drawableStart="@drawable/ic_add_flight_stds_type"/>
+
+                <EditText
+                    android:id="@+id/etSTDSTotalTimeOfSession"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/border"
+                    android:hint="Total Time Of Session"
+                    android:drawableStart="@drawable/add_flight_time"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp">
+
+                <TextView
+                    android:id="@+id/tvRemarksAndEndorsements"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add_flight_title_remarks_and_endorsements"
+                    android:textSize="20sp"
+                    android:textColor="@color/add_flight_title_text_color"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp" />
+
+                <EditText
+                    android:id="@+id/etRemarksAndEndorsements"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/border"
+                    android:hint="Remarks And Endorsements"
+                    android:drawableStart="@drawable/ic_add_flight_remarks_and_endorsements"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

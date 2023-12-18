@@ -4,4 +4,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="light_green">#A5ECA2</color>
     <color name="grey_blue">#6C94B8</color>
+    <color name="add_flight_main_color">#5E758A</color>
+    <color name="add_flight_title_text_color">#C1C4C6</color>
+    <color name="dark_gray">#494949</color>
 </resources>

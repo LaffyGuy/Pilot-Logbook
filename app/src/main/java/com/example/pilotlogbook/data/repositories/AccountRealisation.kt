@@ -1,15 +1,18 @@
 package com.example.pilotlogbook.data.repositories
 
-import android.accounts.AuthenticatorException
 import android.database.sqlite.SQLiteConstraintException
-import android.util.Log
 import com.example.pilotlogbook.data.room.db.PilotLogBookDataBase
 import com.example.pilotlogbook.data.room.entities.account.AccountEntity
 import com.example.pilotlogbook.data.room.entities.tuples.AccountUpdateUsernameTuple
 import com.example.pilotlogbook.domain.entities.Account
 import com.example.pilotlogbook.domain.repositories.AccountRepository
 import com.example.pilotlogbook.data.validation.SignUp
+import com.example.pilotlogbook.domain.AccountAlreadyExistException
+import com.example.pilotlogbook.domain.AuthEmailException
+import com.example.pilotlogbook.domain.AuthPasswordException
+import com.example.pilotlogbook.domain.EmptyFieldException
 import com.example.pilotlogbook.domain.settings.AppSettings
+import com.example.pilotlogbook.domain.settings.Field
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
@@ -21,8 +24,11 @@ class AccountRealisation(private val db: PilotLogBookDataBase, private val appSe
     }
 
     override suspend fun findAccountByEmailAndPassword(email: String, password: String): Int {
-        val tuple = db.getAccountDao().findAccountByEmail(email) ?: throw AuthenticatorException()
-        if(tuple.password != password)  throw AuthenticatorException()
+        if(email.isBlank()) throw EmptyFieldException(Field.Email)
+        if(password.isBlank()) throw EmptyFieldException(Field.Password)
+        delay(1000)
+        val tuple = db.getAccountDao().findAccountByEmail(email) ?: throw AuthEmailException()
+        if(tuple.password != password)  throw AuthPasswordException()
         return tuple.id
     }
 
@@ -31,6 +37,7 @@ class AccountRealisation(private val db: PilotLogBookDataBase, private val appSe
     }
 
     override suspend fun signUp(signUp: SignUp) {
+        signUp.validate()
         delay(1000)
         createAccount(signUp)
     }
@@ -42,7 +49,9 @@ class AccountRealisation(private val db: PilotLogBookDataBase, private val appSe
              val accountId = findAccountByEmailAndPassword(signUp.email, signUp.password)
              appSettings.setCurrentAccountId(accountId)
          }catch (e: SQLiteConstraintException){
-            Log.d("MyTag", "Error - ${e.message.toString()}")
+             val appException = AccountAlreadyExistException()
+             appException.initCause(e)
+             throw appException
          }
     }
 

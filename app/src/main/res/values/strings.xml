@@ -6,7 +6,36 @@
     <string name="last_name_is_empty">Last name is empty</string>
     <string name="email_is_empty">Email is empty</string>
     <string name="password_is_empty">Password is empty</string>
+    <string name="repeat_password_is_empty">Repeat password is empty</string>
     <string name="repeat_password_mismatch">Password mismatch</string>
     <string name="account_already_exist">Account already exist</string>
+    <string name="email_not_found">Email not found</string>
+    <string name="password_not_found">Password not found</string>
+    <string name="email_patterns_error">That`s not valid email</string>
+    <string name="password_length_error">The password needs to consist at least 8 characters</string>
+    <string name="date_is_empty">The date can`t by empty</string>
+    <string name="departure_place_is_empty">The departurePlace can`t be empty</string>
+    <string name="departure_time_is_empty">The departureTime can`t be empty</string>
+    <string name="arrival_place_is_empty">The arrivalPlace can`t be empty</string>
+    <string name="arrival_time_is_empty">The arrivalTime can`t be empty</string>
+    <string name="model_is_empty">The model can`t be empty</string>
+    <string name="registration_is_empty">The registration can`t be empty</string>
+    <string name="total_time_of_flight_is_empty">The totalTimeOfFlight can`t be empty</string>
+    <string name="add_flight_title_date">Date</string>
+    <string name="add_flight_title_departure">Departure</string>
+    <string name="add_flight_title_arrival">Arrival</string>
+    <string name="add_flight_title_aircraft">Aircraft</string>
+    <string name="add_flight_title_single_pilot_time">Single Pilot Time</string>
+    <string name="add_flight_title_multi_pilot_time">Multi Pilot Time</string>
+    <string name="add_flight_title_pic_name">Pic Name</string>
+    <string name="add_flight_title_landings">Landings</string>
+    <string name="add_flight_title_operational_condition_time">Operational Condition Time</string>
+    <string name="add_flight_title_pilot_function_time">Pilot Function Time</string>
+    <string name="add_flight_title_synthetic_training_devices_session">Synthetic Training Devices Session</string>
+    <string name="add_flight_title_remarks_and_endorsements">Remarks And Endorsements</string>
+    <string name="add_flight_title_total_time_of_flight">Total Time Of Flight</string>
+    <string name="add_daily_flight">Add Daily Flight</string>
+    <string name="not_valid_departure_time_type">Not valid type.For exam type shoud by  "1.20"</string>
+
 
 </resources>

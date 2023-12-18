@@ -7,7 +7,6 @@ import androidx.room.Update
 import com.example.pilotlogbook.data.room.entities.account.AccountEntity
 import com.example.pilotlogbook.data.room.entities.tuples.AccountSignInTuple
 import com.example.pilotlogbook.data.room.entities.tuples.AccountUpdateUsernameTuple
-import com.example.pilotlogbook.domain.entities.Account
 import kotlinx.coroutines.flow.Flow
 
 @Dao

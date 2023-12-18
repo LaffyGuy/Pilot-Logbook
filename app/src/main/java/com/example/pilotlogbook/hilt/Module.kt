@@ -10,6 +10,8 @@ import com.example.pilotlogbook.domain.repositories.AccountRepository
 import com.example.pilotlogbook.domain.repositories.DailyFlightRepository
 import com.example.pilotlogbook.domain.settings.AppSettings
 import com.example.pilotlogbook.domain.settings.SharedPreferencesAppSettings
+import com.example.pilotlogbook.utils.SelectDate
+import com.example.pilotlogbook.utils.SelectTime
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -20,6 +22,18 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object Module {
+
+    @Provides
+    @Singleton
+    fun provideSelectTime(context: Context): SelectTime {
+        return SelectTime(context)
+    }
+
+    @Provides
+    @Singleton
+    fun provideSelectDate(context: Context) : SelectDate {
+        return  SelectDate(context)
+    }
 
     @Provides
     @Singleton
