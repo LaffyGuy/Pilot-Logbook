@@ -5,15 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
+import android.widget.EditText
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
 import com.example.pilotlogbook.R
 import com.example.pilotlogbook.databinding.FragmentSignInBinding
-import com.example.pilotlogbook.data.validation.ValidationResult
 import com.example.pilotlogbook.presentation.viewmodels.registerviewmodel.SignInViewModel
+import com.example.pilotlogbook.utils.Constance.NO_ERROR_MESSAGE
 import com.example.pilotlogbook.utils.activityNavController
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -35,21 +34,16 @@ class SignInFragment : Fragment() {
 
 
         bindingClass.btnSingUp.setOnClickListener {
-            findNavController().navigate(R.id.action_signInFragment_to_signUpFragment, null, navOptions {
-                popUpTo(R.id.mainRegisterFragment){
-                    inclusive = true
-                }
-            })
-
+            navigateToSignUpFragment()
         }
 
         bindingClass.btnLogin.setOnClickListener {
           signIn()
         }
 
-        observeSignInValidation()
-
         observeId()
+
+        observeState()
 
     }
 
@@ -57,32 +51,44 @@ class SignInFragment : Fragment() {
         signInViewModel.signIn(bindingClass.etEmail.text.toString(), bindingClass.etPassword.text.toString())
     }
 
-    private fun observeId(){
-        signInViewModel.id.observe(viewLifecycleOwner){
-            if(it != null){
-              activityNavController().navigate(R.id.navigationViewFragment)
-            }else{
-                Toast.makeText(requireContext(), "Email or password is incorrect", Toast.LENGTH_SHORT).show()
+    private fun observeId() {
+        signInViewModel.id.observe(viewLifecycleOwner) {
+            if (it != null) {
+                activityNavController().navigate(R.id.navigationViewFragment, null, navOptions {
+                    popUpTo(R.id.mainRegisterFragment) {
+                        inclusive = true
+                    }
+                })
             }
         }
     }
 
-    private fun observeSignInValidation(){
-        signInViewModel.validation.observe(viewLifecycleOwner){
-            if(it.email is ValidationResult.Failed){
-                bindingClass.etEmail.apply {
-                    requestFocus()
-                    error = it.email.error
-                }
-            }
-            if(it.password is ValidationResult.Failed){
-                bindingClass.etPassword.apply {
-                    requestFocus()
-                    error = it.password.error
-                }
-            }
+
+    private fun observeState(){
+        signInViewModel.state.observe(viewLifecycleOwner){
+            fillError(bindingClass.etEmail, it.emailErrorMessage)
+            fillError(bindingClass.etPassword, it.passwordErrorMessage)
+
+            bindingClass.progressBar.visibility = if(it.showProgress) View.VISIBLE else View.INVISIBLE
+
+        }
+
+    }
+
+    private fun fillError(input: EditText, stringRes: Int){
+        if(stringRes == NO_ERROR_MESSAGE){
+            input.error = null
+        }else{
+            input.error = getString(stringRes)
         }
     }
 
+    private fun navigateToSignUpFragment(){
+        findNavController().navigate(R.id.action_signInFragment_to_signUpFragment, null, navOptions {
+            popUpTo(R.id.mainRegisterFragment){
+                inclusive = true
+            }
+        })
+    }
 
 }

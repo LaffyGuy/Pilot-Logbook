@@ -1,19 +1,15 @@
 package com.example.pilotlogbook.presentation.screens.fragments.register
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
 import com.example.pilotlogbook.R
 import com.example.pilotlogbook.databinding.FragmentSignUpBinding
-import com.example.pilotlogbook.data.validation.ValidationResult
 import com.example.pilotlogbook.presentation.viewmodels.registerviewmodel.SignUpViewModel
 import com.example.pilotlogbook.data.validation.SignUp
 import com.example.pilotlogbook.utils.Constance.NO_ERROR_MESSAGE
@@ -41,9 +37,9 @@ class SignUpFragment : Fragment() {
             createAccount()
         }
 
-        observeRegistrationValidation()
-
         observeState()
+
+        observeNavigate()
 
     }
 
@@ -58,44 +54,9 @@ class SignUpFragment : Fragment() {
 
     }
 
-    private fun observeRegistrationValidation(){
-        signUpViewModel.validation.observe(viewLifecycleOwner){
-            if(it.name is ValidationResult.Failed){
-                bindingClass.etName.apply {
-                    requestFocus()
-                    error = it.name.error
-                }
-            }
-            if(it.lastName is ValidationResult.Failed){
-                bindingClass.etLastName.apply {
-                    requestFocus()
-                    error = it.lastName.error
-                }
-            }
-            if(it.email is ValidationResult.Failed){
-                bindingClass.etEmail.apply {
-                    requestFocus()
-                    error = it.email.error
-                }
-            }
-            if(it.password is ValidationResult.Failed){
-                bindingClass.etPassword.apply {
-                    requestFocus()
-                    error = it.password.error
-                }
-            }
-            if(it.repeatPassword is ValidationResult.Failed){
-                bindingClass.etRepeatPassword.apply {
-                    requestFocus()
-                    error = it.repeatPassword.error
-                }
-            }
-
-            if(it.name is ValidationResult.Success && it.lastName
-                       is ValidationResult.Success && it.email
-                       is ValidationResult.Success && it.password
-                       is ValidationResult.Success && it.repeatPassword
-                       is ValidationResult.Success){
+    private fun observeNavigate(){
+        signUpViewModel.navigate.observe(viewLifecycleOwner){
+            if(it){
                 activityNavController().navigate(R.id.navigationViewFragment, null, navOptions {
                     popUpTo(R.id.mainRegisterFragment){
                         inclusive = true
@@ -105,10 +66,14 @@ class SignUpFragment : Fragment() {
         }
     }
 
+
     private fun observeState(){
         signUpViewModel.state.observe(viewLifecycleOwner){
+            fillError(bindingClass.etName, it.firstNameErrorMessage)
+            fillError(bindingClass.etLastName, it.lastNameErrorMessage)
             fillError(bindingClass.etEmail, it.emailErrorMessage)
-            Log.d("MyTag5", "Progress - ${it.showProgress}")
+            fillError(bindingClass.etPassword, it.passwordErrorMessage)
+            fillError(bindingClass.etRepeatPassword, it.repeatPasswordErrorMessage)
 
             bindingClass.progressBar.visibility = if(it.showProgress) View.VISIBLE else View.INVISIBLE
         }
