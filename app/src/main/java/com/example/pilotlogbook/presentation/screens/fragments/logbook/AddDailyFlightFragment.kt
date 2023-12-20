@@ -89,6 +89,10 @@ class AddDailyFlightFragment : Fragment(){
             }
         }
 
+        bindingClass.btnAddDailyFlight.setOnClickListener {
+            addDailyFlight()
+        }
+
     }
 
 
@@ -124,18 +128,21 @@ class AddDailyFlightFragment : Fragment(){
     }
 
     private fun addDailyFlight(){
+        val date = addDailyFlightViewModel.date.value
+        val departureTime = addDailyFlightViewModel.departureTime.value
+        val arrivalTime = addDailyFlightViewModel.arrivalTime.value
         val dailyFlightForm = DailyFlightForm(
-            bindingClass.tvDate.text.toString().toLongOrNull(),
+            date,
             bindingClass.etDeparturePlace.text.toString(),
-            bindingClass.tvDepartureTime.text.toString().toIntOrNull(),
+            departureTime,
             bindingClass.etArrivalPlace.text.toString(),
-            bindingClass.tvArrivalTime.text.toString().toIntOrNull(),
+            arrivalTime,
             bindingClass.etAircraftModel.text.toString(),
             bindingClass.etAircraftRegistration.text.toString(),
             bindingClass.etSinglePilotTimeSe.text.toString().toDoubleOrNull(),
             bindingClass.etSinglePilotTimeMe.text.toString().toDoubleOrNull(),
             bindingClass.etMultiPilotTime.text.toString().toDoubleOrNull(),
-            bindingClass.etTotalTimeOfFlight.text.toString().toIntOrNull(),
+            convertTime(),
             bindingClass.etPicName.text.toString(),
             bindingClass.etLandingsDay.text.toString().toIntOrNull(),
             bindingClass.etLandingsNight.text.toString().toIntOrNull(),
@@ -150,18 +157,28 @@ class AddDailyFlightFragment : Fragment(){
             bindingClass.etSTDSTotalTimeOfSession.text.toString().toDoubleOrNull(),
             bindingClass.etRemarksAndEndorsements.text.toString())
         addDailyFlightViewModel.addDailyFlight(dailyFlightForm)
+        Log.d("MyTag1", "Text Date - ${bindingClass.tvDate.text}")
+        Log.d("MyTag1", "Converte Time - ${convertTime()}")
     }
 
     private fun observe(){
         addDailyFlightViewModel.state.observe(viewLifecycleOwner){
             fillErrorTextView(bindingClass.tvDate, it.dateErrorMessage)
+            Log.d("MyTag1", "Date - ${it.dateErrorMessage}")
             fillError(bindingClass.etDeparturePlace, it.departurePlaceErrorMessage)
+            Log.d("MyTag1", "Departure Place ${it.departurePlaceErrorMessage}")
             fillErrorTextView(bindingClass.tvDepartureTime, it.departureTimeErrorMessage)
+            Log.d("MyTag1", "Departure Time - ${it.departureTimeErrorMessage}")
             fillError(bindingClass.etArrivalPlace, it.arrivalPlaceErrorMessage)
+            Log.d("MyTag1", "Arrival Place - ${it.arrivalPlaceErrorMessage}")
             fillErrorTextView(bindingClass.tvArrivalTime, it.arrivalTimeErrorMessage)
+            Log.d("MyTag1", "Arrival Time - ${it.arrivalTimeErrorMessage}")
             fillError(bindingClass.etAircraftModel, it.modelErrorMessage)
+            Log.d("MyTag1", "Aircraft Model - ${it.modelErrorMessage}")
             fillError(bindingClass.etAircraftRegistration, it.registrationErrorMessage)
+            Log.d("MyTag1", "Aircraft Registration - ${it.registrationErrorMessage}")
             fillError(bindingClass.etTotalTimeOfFlight, it.totalTimeOfFlightErrorMessage)
+            Log.d("MyTag1", "Total Time Of Flight - ${it.totalTimeOfFlightErrorMessage}")
 
 //            bindingClass.progressBar.visibility = if(it.showProgress) View.VISIBLE else View.INVISIBLE
 
@@ -184,6 +201,15 @@ class AddDailyFlightFragment : Fragment(){
             input.requestFocus()
             input.error = getString(stringRes)
         }
+    }
+
+    private fun convertTime(): Long {
+        val input = bindingClass.etTotalTimeOfFlight.text.toString()
+        val parts = input.split(".")
+        val hours = parts[0].toIntOrNull() ?: 0
+        val minutes = if(parts.size > 1) parts[1].toIntOrNull() ?: 0 else 0
+
+        return (hours * 60 * 60 * 1000 + minutes * 60 * 1000).toLong()
     }
 
 }
