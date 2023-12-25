@@ -1,6 +1,8 @@
 package com.example.pilotlogbook.presentation.screens.fragments.logbook
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,6 +11,8 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
+import android.widget.SearchView.OnQueryTextListener
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
@@ -21,6 +25,7 @@ import androidx.navigation.ui.onNavDestinationSelected
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.pilotlogbook.R
 import com.example.pilotlogbook.adapter.DailyFlightAdapter
+import com.example.pilotlogbook.adapter.DailyFlightPagerAdapter
 import com.example.pilotlogbook.databinding.FragmentDailyFlightBinding
 import com.example.pilotlogbook.databinding.PartResultBinding
 import com.example.pilotlogbook.domain.ErrorResult
@@ -31,6 +36,7 @@ import com.example.pilotlogbook.utils.activityNavController
 
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
@@ -38,6 +44,7 @@ class DailyFlightFragment : Fragment(), MenuProvider {
     lateinit var bindingClass: FragmentDailyFlightBinding
     private val dailyFlightViewModel by viewModels<DailyFlightViewModel>()
     lateinit var dailyFlightAdapter: DailyFlightAdapter
+    lateinit var pagerAdapter: DailyFlightPagerAdapter
 //    lateinit var partResultBinding: PartResultBinding
 
     override fun onCreateView(
@@ -57,107 +64,42 @@ class DailyFlightFragment : Fragment(), MenuProvider {
 
         requireActivity().addMenuProvider(this, viewLifecycleOwner)
 
-        initDailyFlightAdapter()
+//        initDailyFlightAdapter()
 
-//        getAllDailyFlightLog()
+        initPagerAdapter()
 
-//        observeResult()
+        observePagerDailyFlight()
+
+//        test()
+
+        dailyFlightViewModel.searchBy.observe(viewLifecycleOwner){
+            Log.d("MyTag2", "Observe value - $it")
+        }
+
+        bindingClass.etSearch.setOnQueryTextListener(object : OnQueryTextListener{
+            override fun onQueryTextSubmit(p0: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(p0: String?): Boolean {
+                dailyFlightViewModel.setSearchBy(p0 ?: "")
+                Log.d("MyTag2", "Value - $p0")
+                return true
+
+            }
+
+        })
+
 
     }
 
 
-    private fun initDailyFlightAdapter(){
-        dailyFlightAdapter = DailyFlightAdapter()
-        bindingClass.rvDailyFlight.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-        bindingClass.rvDailyFlight.adapter = dailyFlightAdapter
-    }
-
-
-//    private fun getAllDailyFlightLog(){
-//        val partResultBinding = PartResultBinding.bind(bindingClass.root)
-//        viewLifecycleOwner.lifecycleScope.launch {
-//            repeatOnLifecycle(Lifecycle.State.STARTED){
-//                delay(2000)
-//                dailyFlightViewModel.getAllDailyFlightLog().collect{ result ->
-//                    when(result){
-//                        is LoadingResult -> {
-//                            bindingClass.horizontalScrollView.visibility = View.GONE
-//                            partResultBinding.mainLinearLayout.visibility = View.GONE
-//                            partResultBinding.progressBar.visibility = View.VISIBLE
-//                        }
-//                        is SuccessResult -> {
-//                            bindingClass.horizontalScrollView.visibility = View.VISIBLE
-//                            partResultBinding.mainLinearLayout.visibility = View.GONE
-//                            partResultBinding.progressBar.visibility = View.GONE
-//
-//                            dailyFlightAdapter.differ.submitList(result.data)
-//                        }
-//                        is ErrorResult -> {
-//                            bindingClass.horizontalScrollView.visibility = View.GONE
-//                            partResultBinding.mainLinearLayout.visibility = View.VISIBLE
-//                            partResultBinding.progressBar.visibility = View.GONE
-//
-//                        }
-//                    }
-//                }
-//            }
-//        }
+//    private fun initDailyFlightAdapter(){
+//        dailyFlightAdapter = DailyFlightAdapter()
+//        bindingClass.rvDailyFlight.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+//        bindingClass.rvDailyFlight.adapter = dailyFlightAdapter
 //    }
 
-//    private fun observeResult() {
-//        dailyFlightViewModel.getDailyFlight().observe(viewLifecycleOwner){
-//
-//            dailyFlightAdapter.differ.submitList(it)
-//            bindingClass.tvTotalFlightTime.text = it.sumOf { it.totalTimeOfFlight ?: 0 }.toString()
-//    }
-
-
-//    private fun observeResult(){
-//        dailyFlightViewModel.pending.observe(viewLifecycleOwner){ result ->
-//            pendingResult(bindingClass.root, result,
-//            onLoading = {
-//                Log.d("MyTag13", "Loading Result")
-//                bindingClass.mainLinearLayout1.visibility = View.GONE
-//                bindingClass.progressBar.visibility = View.VISIBLE
-//                bindingClass.horizontalScrollView.visibility = View.GONE
-//            },
-//            onSuccess = {
-//                Log.d("MyTag13", "Success Result")
-//                bindingClass.mainLinearLayout1.visibility = View.GONE
-//                bindingClass.progressBar.visibility = View.GONE
-//                bindingClass.horizontalScrollView.visibility = View.VISIBLE
-//
-//                dailyFlightAdapter.differ.submitList(it)
-//            },
-//            onError = {
-//                Log.d("MyTag13", "Error Result")
-//                bindingClass.mainLinearLayout1.visibility = View.VISIBLE
-//                bindingClass.progressBar.visibility = View.GONE
-//                bindingClass.horizontalScrollView.visibility = View.GONE
-//            })
-//            when(result){
-//                is LoadingResult -> {
-//                    Log.d("MyTag13", "Loading Result")
-//                    partResultBinding.mainLinearLayout.visibility = View.GONE
-//                    partResultBinding.progressBar.visibility = View.VISIBLE
-//                    bindingClass.horizontalScrollView.visibility = View.GONE
-//                }
-//                is SuccessResult -> {
-//                    Log.d("MyTag13", "Success Result")
-//                    partResultBinding.mainLinearLayout.visibility = View.GONE
-//                    partResultBinding.progressBar.visibility = View.GONE
-//                    bindingClass.horizontalScrollView.visibility = View.VISIBLE
-//
-//                    dailyFlightAdapter.differ.submitList(result.data)
-//                }
-//                is ErrorResult -> {
-//                    Log.d("MyTag13", "Error Result")
-//                    partResultBinding.mainLinearLayout.visibility = View.VISIBLE
-//                    partResultBinding.progressBar.visibility = View.GONE
-//                    bindingClass.horizontalScrollView.visibility = View.GONE
-//                }
-//            }
-//        }
 
     private fun navigateToAddDailyFlightFragment(){
         activityNavController().navigate(R.id.addDailyFlightFragment)
@@ -173,6 +115,36 @@ class DailyFlightFragment : Fragment(), MenuProvider {
         }
         return true
     }
+
+//    private fun test(){
+//        dailyFlightViewModel.searchQuery.observe(viewLifecycleOwner){
+//            dailyFlightAdapter.differ.submitList(it)
+//        }
+//    }
+
+//    private fun getAll(searchBy: String) {
+//        dailyFlightViewModel.getAllDailyFlightTest(searchBy).observe(viewLifecycleOwner){
+//            dailyFlightAdapter.differ.submitList(it)
+//        }
+//    }
+
+    private fun initPagerAdapter(){
+        pagerAdapter = DailyFlightPagerAdapter()
+        bindingClass.rvDailyFlight.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+        bindingClass.rvDailyFlight.adapter = pagerAdapter
+    }
+
+    private fun observePagerDailyFlight(){
+        Log.d("MyTag2", "Observe")
+        viewLifecycleOwner.lifecycleScope.launch{
+            dailyFlightViewModel.dailyFlightFlow.collectLatest { pagingData ->
+                Log.d("MyTag3", "Data - $pagingData")
+                pagerAdapter.submitData(pagingData)
+            }
+        }
+    }
+
+
 }
 
 

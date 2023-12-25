@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.pilotlogbook.R
 import com.example.pilotlogbook.databinding.DailyFlightItemBinding
 import com.example.pilotlogbook.domain.entities.DailyFlight
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 class DailyFlightAdapter: RecyclerView.Adapter<DailyFlightAdapter.DailyFlightViewHolder>() {
     class DailyFlightViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
@@ -16,35 +18,31 @@ class DailyFlightAdapter: RecyclerView.Adapter<DailyFlightAdapter.DailyFlightVie
         val binding = DailyFlightItemBinding.bind(itemView)
         fun bind(item: DailyFlight){
               with(binding){
-//                  tvDate.text = item.date
-//                  tvDeparturePlace.text = item.departurePlace
-//                  tvDepartureTime.text = item.departureTime.toString()
-//                  tvArrivalPlace.text = item.arrivalPlace
-//                  tvArrivalTime.text = item.arrivalTime.toString()
-//                  tvAircrafyModel.text = item.aircraftModel
-//                  tvAircraftRegistration.text = item.aircraftRegistration
-//                  tvSinglePilotTimeSe.text = item.singlePilotTimeSe.toString()
-//                  tvSinglePilotTimeMe.text = item.singlePilotTimeMe.toString()
-//                  tvMultiPilotTime.text = item.multiPilotTime.toString()
-//                  tvTotalTimeOfFlight.text = item.totalTimeOfFlight.toString()
-//                  tvPickName.text = item.picName
-//                  tvLandingsDay.text = item.landingsDay.toString()
-//                  tvLandingsNight.text = item.landingsNight.toString()
-//                  tvOperationalConditionTimeNight.text = item.operationalConditionTimeNight.toString()
-//                  tvOperationalConditionTimeIFR.text = item.operationalConditionTimeIfr.toString()
-//                  tvPilotFunctionTimePilotInComand.text = item.pilotFunctionTimePilotInComand.toString()
-//                  tvPilotFunctionTimeCoPilot.text = item.pilotFunctionTimePilotCoPilot.toString()
-//                  tvPilotFunctionTimeDual.text = item.pilotFunctionTimePilotDual.toString()
-//                  tvPilotFunctionTimeInstructor.text = item.pilotFunctionTimePilotInstructor.toString()
-//                  tvSyntheticTrainingDevicesSessionDate.text = item.syntheticTrainingDevicesSessionDate.toString()
-//                  tvSyntheticTrainingDevicesSessionType.text = item.syntheticTrainingDevicesSessionType
-//                  tvSyntheticTrainingDevicesSessionTotalTimeOfSession.text = item.syntheticTrainingDevicesSessionTotalTimeOfSession.toString()
-//                  tvRemarksAndEndorsements.text = item.remarksAndEndorsements
-
+                    tvDate.text = convertLongToDate(item.date ?: 0)
+                    tvDeparturePlace.text = item.departurePlace
+                    tvDepartureTime.text = convertLongToTime(item.departureTime ?: 0)
+                    tvArrivalPlace.text = item.arrivalPlace
+                    tvArrivalTime.text = convertLongToTime(item.arrivalTime ?: 0)
+                    tvModel.text = item.aircraftModel
+                    tvRegistration.text = item.aircraftRegistration
+                    tvTotalTimeToFlight.text = convertLongToTime(item.totalTimeOfFlight ?: 0)
               }
         }
 
+        fun convertLongToDate(value: Long): String{
+            val formatter = SimpleDateFormat("dd.MM.yyyy", Locale.getDefault())
+
+            return formatter.format(value)
+        }
+
+        fun convertLongToTime(value: Long): String {
+            val formatter = SimpleDateFormat("HH:mm", Locale.getDefault())
+
+            return formatter.format(value)
+        }
+
     }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DailyFlightViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.daily_flight_item, parent, false)
@@ -68,7 +66,6 @@ class DailyFlightAdapter: RecyclerView.Adapter<DailyFlightAdapter.DailyFlightVie
         override fun areContentsTheSame(oldItem: DailyFlight, newItem: DailyFlight): Boolean {
             return oldItem == newItem
         }
-
     }
 
     val differ = AsyncListDiffer(this, differCallback)

@@ -4,5 +4,5 @@ import androidx.room.ColumnInfo
 
 data class DepartureTuple(
     @ColumnInfo(name = "departure_place")val place: String?,
-    @ColumnInfo(name = "departure_time")val time: Int?
+    @ColumnInfo(name = "departure_time")val time: Long?
 )

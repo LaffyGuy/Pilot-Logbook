@@ -21,4 +21,14 @@ interface DailyFlightDao {
     @Insert
     suspend fun addDailyFlightLog(dailyFlightEntity: DailyFlightEntity)
 
+    @Query("SELECT * FROM daily_flight_table " +
+            "WHERE :searchBy = '' OR departure_place LIKE '%' || :searchBy || '%' " +
+            "ORDER BY departure_place " +
+            "LIMIT :limit OFFSET :offset")
+    suspend fun getAllDailyFlight(limit: Int, offset: Int, searchBy: String = ""): List<DailyFlightEntity>
+
+    @Query("SELECT * FROM daily_flight_table " + "WHERE :searchBy = '' OR departure_place LIKE '%' || :searchBy || '%'" + "ORDER BY departure_place")
+    fun getDailyFlightTest(searchBy: String): LiveData<List<DailyFlightEntity>>
+
+
 }

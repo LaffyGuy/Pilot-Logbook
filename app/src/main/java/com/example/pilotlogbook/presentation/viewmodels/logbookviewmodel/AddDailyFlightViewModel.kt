@@ -45,13 +45,15 @@ class AddDailyFlightViewModel @Inject constructor(private val dailyFlightReposit
             }catch (e: EmptyAddFlightFieldException){
                 processEmptyFieldsException(e)
                 Log.d("MyTag30", "Catch")
-            }catch (e: NotValidInputTimeException){
-                processNotValidInputType(e)
             }finally {
                 processHideProgressBar()
             }
         }
     }
+
+//    catch (e: NotValidInputTimeException){
+//        processNotValidInputType(e)
+//    }
 
     private fun processEmptyFieldsException(e: EmptyAddFlightFieldException){
         _state.value = when(e.field){
@@ -75,9 +77,9 @@ class AddDailyFlightViewModel @Inject constructor(private val dailyFlightReposit
         _state.value = _state.value?.copy(addProgress = false)
     }
 
-    private fun processNotValidInputType(e: NotValidInputTimeException){
-        _state.value = _state.value?.copy(departureTimeErrorMessage = R.string.not_valid_departure_time_type)
-    }
+//    private fun processNotValidInputType(e: NotValidInputTimeException){
+//        _state.value = _state.value?.copy(departureTimeErrorMessage = R.string.not_valid_departure_time_type)
+//    }
 
     data class State(
         val dateErrorMessage: Int = Constance.NO_ERROR_MESSAGE,

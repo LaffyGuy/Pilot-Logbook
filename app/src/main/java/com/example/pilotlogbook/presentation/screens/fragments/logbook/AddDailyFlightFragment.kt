@@ -1,7 +1,6 @@
 package com.example.pilotlogbook.presentation.screens.fragments.logbook
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -157,28 +156,18 @@ class AddDailyFlightFragment : Fragment(){
             bindingClass.etSTDSTotalTimeOfSession.text.toString().toDoubleOrNull(),
             bindingClass.etRemarksAndEndorsements.text.toString())
         addDailyFlightViewModel.addDailyFlight(dailyFlightForm)
-        Log.d("MyTag1", "Text Date - ${bindingClass.tvDate.text}")
-        Log.d("MyTag1", "Converte Time - ${convertTime()}")
     }
 
     private fun observe(){
         addDailyFlightViewModel.state.observe(viewLifecycleOwner){
             fillErrorTextView(bindingClass.tvDate, it.dateErrorMessage)
-            Log.d("MyTag1", "Date - ${it.dateErrorMessage}")
             fillError(bindingClass.etDeparturePlace, it.departurePlaceErrorMessage)
-            Log.d("MyTag1", "Departure Place ${it.departurePlaceErrorMessage}")
             fillErrorTextView(bindingClass.tvDepartureTime, it.departureTimeErrorMessage)
-            Log.d("MyTag1", "Departure Time - ${it.departureTimeErrorMessage}")
             fillError(bindingClass.etArrivalPlace, it.arrivalPlaceErrorMessage)
-            Log.d("MyTag1", "Arrival Place - ${it.arrivalPlaceErrorMessage}")
             fillErrorTextView(bindingClass.tvArrivalTime, it.arrivalTimeErrorMessage)
-            Log.d("MyTag1", "Arrival Time - ${it.arrivalTimeErrorMessage}")
             fillError(bindingClass.etAircraftModel, it.modelErrorMessage)
-            Log.d("MyTag1", "Aircraft Model - ${it.modelErrorMessage}")
             fillError(bindingClass.etAircraftRegistration, it.registrationErrorMessage)
-            Log.d("MyTag1", "Aircraft Registration - ${it.registrationErrorMessage}")
             fillError(bindingClass.etTotalTimeOfFlight, it.totalTimeOfFlightErrorMessage)
-            Log.d("MyTag1", "Total Time Of Flight - ${it.totalTimeOfFlightErrorMessage}")
 
 //            bindingClass.progressBar.visibility = if(it.showProgress) View.VISIBLE else View.INVISIBLE
 
