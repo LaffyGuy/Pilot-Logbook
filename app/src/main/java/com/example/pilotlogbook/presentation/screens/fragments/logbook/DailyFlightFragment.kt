@@ -1,9 +1,6 @@
 package com.example.pilotlogbook.presentation.screens.fragments.logbook
 
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.Menu
@@ -11,48 +8,37 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import android.widget.SearchView
 import android.widget.SearchView.OnQueryTextListener
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
+import androidx.core.view.isInvisible
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
-import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.onNavDestinationSelected
+import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.pilotlogbook.R
-import com.example.pilotlogbook.adapter.DailyFlightAdapter
 import com.example.pilotlogbook.adapter.DailyFlightPagerAdapter
+import com.example.pilotlogbook.adapter.DefaultLoadStateAdapter
 import com.example.pilotlogbook.databinding.FragmentDailyFlightBinding
-import com.example.pilotlogbook.databinding.PartResultBinding
-import com.example.pilotlogbook.domain.ErrorResult
-import com.example.pilotlogbook.domain.LoadingResult
-import com.example.pilotlogbook.domain.SuccessResult
 import com.example.pilotlogbook.presentation.viewmodels.logbookviewmodel.DailyFlightViewModel
 import com.example.pilotlogbook.utils.activityNavController
-
+import com.example.pilotlogbook.utils.simpleScan
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class DailyFlightFragment : Fragment(), MenuProvider {
     lateinit var bindingClass: FragmentDailyFlightBinding
     private val dailyFlightViewModel by viewModels<DailyFlightViewModel>()
-    lateinit var dailyFlightAdapter: DailyFlightAdapter
     lateinit var pagerAdapter: DailyFlightPagerAdapter
-//    lateinit var partResultBinding: PartResultBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
         bindingClass = FragmentDailyFlightBinding.inflate(layoutInflater)
-//        partResultBinding = PartResultBinding.bind(bindingClass.root)
 
 
 
@@ -64,17 +50,14 @@ class DailyFlightFragment : Fragment(), MenuProvider {
 
         requireActivity().addMenuProvider(this, viewLifecycleOwner)
 
-//        initDailyFlightAdapter()
-
         initPagerAdapter()
 
         observePagerDailyFlight()
 
-//        test()
+        setUpSwipeToRefresh()
 
-        dailyFlightViewModel.searchBy.observe(viewLifecycleOwner){
-            Log.d("MyTag2", "Observe value - $it")
-        }
+
+
 
         bindingClass.etSearch.setOnQueryTextListener(object : OnQueryTextListener{
             override fun onQueryTextSubmit(p0: String?): Boolean {
@@ -83,7 +66,6 @@ class DailyFlightFragment : Fragment(), MenuProvider {
 
             override fun onQueryTextChange(p0: String?): Boolean {
                 dailyFlightViewModel.setSearchBy(p0 ?: "")
-                Log.d("MyTag2", "Value - $p0")
                 return true
 
             }
@@ -91,15 +73,15 @@ class DailyFlightFragment : Fragment(), MenuProvider {
         })
 
 
+
     }
 
-
-//    private fun initDailyFlightAdapter(){
-//        dailyFlightAdapter = DailyFlightAdapter()
-//        bindingClass.rvDailyFlight.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-//        bindingClass.rvDailyFlight.adapter = dailyFlightAdapter
-//    }
-
+    private fun setUpSwipeToRefresh(){
+        bindingClass.swipeToRefreshLayout.setOnRefreshListener {
+          dailyFlightViewModel.refresh()
+            bindingClass.swipeToRefreshLayout.isRefreshing = false
+        }
+    }
 
     private fun navigateToAddDailyFlightFragment(){
         activityNavController().navigate(R.id.addDailyFlightFragment)
@@ -116,29 +98,52 @@ class DailyFlightFragment : Fragment(), MenuProvider {
         return true
     }
 
-//    private fun test(){
-//        dailyFlightViewModel.searchQuery.observe(viewLifecycleOwner){
-//            dailyFlightAdapter.differ.submitList(it)
-//        }
-//    }
-
-//    private fun getAll(searchBy: String) {
-//        dailyFlightViewModel.getAllDailyFlightTest(searchBy).observe(viewLifecycleOwner){
-//            dailyFlightAdapter.differ.submitList(it)
-//        }
-//    }
 
     private fun initPagerAdapter(){
         pagerAdapter = DailyFlightPagerAdapter()
+
+        val footerAdapter = DefaultLoadStateAdapter()
+
+        val adapterWithLoadState = pagerAdapter.withLoadStateFooter(footerAdapter)
+
         bindingClass.rvDailyFlight.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-        bindingClass.rvDailyFlight.adapter = pagerAdapter
+        bindingClass.rvDailyFlight.adapter = adapterWithLoadState
+
+        handleScrollingToTopWhenSearching(pagerAdapter)
+        handleListVisibility(pagerAdapter)
+    }
+
+    private fun handleScrollingToTopWhenSearching(adapter: DailyFlightPagerAdapter) = viewLifecycleOwner.lifecycleScope.launch {
+       getRefreshLoadStateFlow(adapter)
+           .simpleScan(count = 2)
+           .collectLatest { (previousState, currentState) ->
+                if(previousState is LoadState.Loading && currentState is LoadState.NotLoading) {
+                      bindingClass.rvDailyFlight.scrollToPosition(0)
+           }
+       }
+    }
+
+    private fun handleListVisibility(adapter: DailyFlightPagerAdapter) = viewLifecycleOwner.lifecycleScope.launch {
+        getRefreshLoadStateFlow(adapter)
+            .simpleScan(count = 3)
+            .collectLatest {(beforePrevious, previous, current) ->
+                bindingClass.rvDailyFlight.isInvisible = current is LoadState.Error
+                    || previous is LoadState.Error
+                    || (beforePrevious is LoadState.Error && previous is LoadState.NotLoading
+                        && current is LoadState.Loading)
+        }
+    }
+
+
+    private fun getRefreshLoadStateFlow(adapter: DailyFlightPagerAdapter): Flow<LoadState> {
+        return adapter.loadStateFlow.map {
+            it.refresh
+        }
     }
 
     private fun observePagerDailyFlight(){
-        Log.d("MyTag2", "Observe")
         viewLifecycleOwner.lifecycleScope.launch{
             dailyFlightViewModel.dailyFlightFlow.collectLatest { pagingData ->
-                Log.d("MyTag3", "Data - $pagingData")
                 pagerAdapter.submitData(pagingData)
             }
         }

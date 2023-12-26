@@ -12,6 +12,8 @@ import com.example.pilotlogbook.domain.ErrorResult
 import com.example.pilotlogbook.domain.LoadingResult
 import com.example.pilotlogbook.domain.Result
 import com.example.pilotlogbook.domain.SuccessResult
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.scan
 import java.lang.Exception
 
 fun Fragment.activityNavController() = requireActivity().findNavController(R.id.fragmentContainerView2)
@@ -32,19 +34,8 @@ fun <T>pendingResult(root: ViewGroup, result: Result<T>, onLoading: () -> Unit,
 
 }
 
-fun convertDouble(input: EditText): Double{
-    if(input.text.toString().isNotEmpty()){
-       return input.text.toString().toDouble()
-    }
-    else return 0.0
-
-}
-
-fun convertInt(input: EditText): Int{
-    if(input.text.toString().isNotEmpty()){
-        return input.text.toString().toInt()
-    }
-    else return 0
-
+fun <T> Flow<T>.simpleScan(count: Int): Flow<List<T?>> {
+    val items = List<T?>(count) { null }
+    return this.scan(items) { previous, value -> previous.drop(1) + value }
 }
 
