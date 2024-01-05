@@ -36,6 +36,7 @@
     <string name="add_flight_title_total_time_of_flight">Total Time Of Flight</string>
     <string name="add_daily_flight">Add Daily Flight</string>
     <string name="not_valid_departure_time_type">Not valid type.For exam type shoud by  "1.20"</string>
+    <string name="btn_log_out_profile">logout</string>
 
 
 </resources>

@@ -5,5 +5,6 @@ data class Account(
     val firstName: String,
     val lastName: String,
     val email: String,
-    val createAt: Long
+    val createAt: Long,
+    val totalDailyFlightTime: Long
 )

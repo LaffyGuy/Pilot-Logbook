@@ -14,4 +14,6 @@ interface DailyFlightRepository {
 
     fun getPagedDailyFlight(searchBy : String): Flow<PagingData<DailyFlight>>
 
+    suspend fun updateTotalTimeOfFlight()
+
 }

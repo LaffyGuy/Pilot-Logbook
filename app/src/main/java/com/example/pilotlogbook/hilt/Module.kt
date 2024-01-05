@@ -5,6 +5,9 @@ import android.content.Context
 import androidx.room.Room
 import com.example.pilotlogbook.data.repositories.AccountRealisation
 import com.example.pilotlogbook.data.repositories.DailyFlightRealisation
+import com.example.pilotlogbook.data.room.MIGRATION_10_11
+import com.example.pilotlogbook.data.room.MIGRATION_11_12
+import com.example.pilotlogbook.data.room.MIGRATION_9_10
 import com.example.pilotlogbook.data.room.db.PilotLogBookDataBase
 import com.example.pilotlogbook.domain.repositories.AccountRepository
 import com.example.pilotlogbook.domain.repositories.DailyFlightRepository
@@ -63,8 +66,8 @@ object Module {
     @Singleton
     fun providePilotLogBookDataBase(app: Application) = Room.databaseBuilder(
         app, PilotLogBookDataBase::class.java, "pilot.db"
-    ).fallbackToDestructiveMigration()
-     .build()
+    ).addMigrations(MIGRATION_9_10, MIGRATION_10_11, MIGRATION_11_12)
+        .build()
 
 
 

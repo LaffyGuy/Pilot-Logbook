@@ -107,4 +107,10 @@ class AddDailyFlightViewModel @Inject constructor(private val dailyFlightReposit
         _arrivalTime.value = arrivalTime
     }
 
+    fun updateTotalTimeOfFlight() {
+        viewModelScope.launch {
+            dailyFlightRepository.updateTotalTimeOfFlight()
+        }
+    }
+
 }

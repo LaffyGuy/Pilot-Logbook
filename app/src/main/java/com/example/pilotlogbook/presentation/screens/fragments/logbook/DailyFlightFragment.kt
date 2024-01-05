@@ -13,12 +13,15 @@ import androidx.core.view.MenuProvider
 import androidx.core.view.isInvisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.pilotlogbook.R
+import com.example.pilotlogbook.adapter.DailyFlightAction
 import com.example.pilotlogbook.adapter.DailyFlightPagerAdapter
 import com.example.pilotlogbook.adapter.DefaultLoadStateAdapter
 import com.example.pilotlogbook.databinding.FragmentDailyFlightBinding
+import com.example.pilotlogbook.domain.entities.DailyFlight
 import com.example.pilotlogbook.presentation.viewmodels.logbookviewmodel.DailyFlightViewModel
 import com.example.pilotlogbook.utils.activityNavController
 import com.example.pilotlogbook.utils.simpleScan
@@ -100,7 +103,13 @@ class DailyFlightFragment : Fragment(), MenuProvider {
 
 
     private fun initPagerAdapter(){
-        pagerAdapter = DailyFlightPagerAdapter()
+        pagerAdapter = DailyFlightPagerAdapter(object : DailyFlightAction {
+            override fun dailyFlightDetails(dailyFlight: DailyFlight) {
+                val direction = DailyFlightFragmentDirections.actionDailyFlightFragmentToDetailsDailyFlightFragment(dailyFlight)
+                findNavController().navigate(direction)
+            }
+
+        })
 
         val footerAdapter = DefaultLoadStateAdapter()
 

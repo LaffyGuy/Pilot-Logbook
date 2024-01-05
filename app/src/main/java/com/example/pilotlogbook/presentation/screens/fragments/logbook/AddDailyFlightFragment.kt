@@ -90,6 +90,7 @@ class AddDailyFlightFragment : Fragment(){
 
         bindingClass.btnAddDailyFlight.setOnClickListener {
             addDailyFlight()
+            addDailyFlightViewModel.updateTotalTimeOfFlight()
         }
 
     }

@@ -9,10 +9,18 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.pilotlogbook.R
 import com.example.pilotlogbook.databinding.DailyFlightItemBinding
 import com.example.pilotlogbook.domain.entities.DailyFlight
+import com.example.pilotlogbook.utils.convertLongToDate
+import com.example.pilotlogbook.utils.convertLongToTime
 import java.text.SimpleDateFormat
 import java.util.Locale
 
-class DailyFlightPagerAdapter: PagingDataAdapter<DailyFlight, DailyFlightPagerAdapter.Holder>(DailyFlightDiffCallBack()) {
+
+interface DailyFlightAction {
+
+    fun dailyFlightDetails(dailyFlight: DailyFlight)
+
+}
+class DailyFlightPagerAdapter(private val dailyFlightAction: DailyFlightAction): PagingDataAdapter<DailyFlight, DailyFlightPagerAdapter.Holder>(DailyFlightDiffCallBack()), View.OnClickListener {
     class Holder(itemView: View): RecyclerView.ViewHolder(itemView) {
            val binding = DailyFlightItemBinding.bind(itemView)
            fun bind(item: DailyFlight){
@@ -27,17 +35,7 @@ class DailyFlightPagerAdapter: PagingDataAdapter<DailyFlight, DailyFlightPagerAd
                    tvTotalTimeToFlight.text = convertLongToTime(item.totalTimeOfFlight ?: 0)
                }
            }
-        fun convertLongToDate(value: Long): String{
-            val formatter = SimpleDateFormat("dd.MM.yyyy", Locale.getDefault())
 
-            return formatter.format(value)
-        }
-
-        fun convertLongToTime(value: Long): String {
-            val formatter = SimpleDateFormat("HH:mm", Locale.getDefault())
-
-            return formatter.format(value)
-        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
@@ -48,6 +46,15 @@ class DailyFlightPagerAdapter: PagingDataAdapter<DailyFlight, DailyFlightPagerAd
     override fun onBindViewHolder(holder: Holder, position: Int) {
         val currentDailyFlight = getItem(position) ?: return
         holder.bind(currentDailyFlight)
+
+        holder.itemView.tag = currentDailyFlight
+
+        holder.itemView.setOnClickListener(this)
+    }
+
+    override fun onClick(p0: View) {
+        val dailyFlight = p0.tag as DailyFlight
+        dailyFlightAction.dailyFlightDetails(dailyFlight)
     }
 }
 

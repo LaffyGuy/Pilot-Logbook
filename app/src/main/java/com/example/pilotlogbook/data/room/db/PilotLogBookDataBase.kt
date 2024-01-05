@@ -7,7 +7,7 @@ import com.example.pilotlogbook.data.room.dao.DailyFlightDao
 import com.example.pilotlogbook.data.room.entities.account.AccountEntity
 import com.example.pilotlogbook.data.room.entities.dailyflight.DailyFlightEntity
 
-@Database(entities = [DailyFlightEntity::class, AccountEntity::class], version = 9)
+@Database(entities = [DailyFlightEntity::class, AccountEntity::class], version = 12)
 abstract class PilotLogBookDataBase: RoomDatabase() {
 
     abstract fun getDailyFlightDao(): DailyFlightDao

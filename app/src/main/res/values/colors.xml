@@ -8,4 +8,6 @@
     <color name="add_flight_title_text_color">#C1C4C6</color>
     <color name="dark_gray">#494949</color>
     <color name="oxid_green">#2FC516</color>
+    <color name="light_gray">#DFDFDF</color>
+    <color name="light_red">#EF7272</color>
 </resources>

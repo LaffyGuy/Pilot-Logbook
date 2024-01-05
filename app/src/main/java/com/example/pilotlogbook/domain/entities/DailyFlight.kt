@@ -1,5 +1,9 @@
 package com.example.pilotlogbook.domain.entities
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class DailyFlight(
     val id: Int? = null,
     val date: Long?,
@@ -26,4 +30,4 @@ data class DailyFlight(
     val syntheticTrainingDevicesSessionType: String?,
     val syntheticTrainingDevicesSessionTotalTimeOfSession: Double?,
     val remarksAndEndorsements: String?
-)
+): Parcelable

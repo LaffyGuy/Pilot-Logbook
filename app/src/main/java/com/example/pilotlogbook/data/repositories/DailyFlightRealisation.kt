@@ -40,6 +40,9 @@ class DailyFlightRealisation(private val db: PilotLogBookDataBase): DailyFlightR
         ).flow
     }
 
+    override suspend fun updateTotalTimeOfFlight() {
+        db.getDailyFlightDao().updateTotalTimeOfFlight()
+    }
 }
 
 
