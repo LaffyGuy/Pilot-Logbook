@@ -1,0 +1,1026 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".presentation.screens.fragments.logbook.DetailsDailyFlightFragment"
+    android:orientation="vertical"
+    android:background="@color/light_gray">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/headerCardView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp">
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginEnd="50dp">
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/icon_plane_start"
+                        android:layout_gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/tvDeparturePlaceValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:textSize="24sp"
+                        android:text="Boyarka"
+                        android:layout_gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/tvDepartureTimeValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:textSize="24sp"
+                        android:text="12:30"
+                        android:layout_gravity="center"/>
+
+                </LinearLayout>
+
+
+                <ImageView
+                    android:id="@+id/arrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_item_flight_arrow"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginTop="40dp"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="end"
+                    android:layout_marginStart="50dp">
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/icon_plane_landing"
+                        android:layout_gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/tvArrivalPlaceValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:textColor="@color/black"
+                        android:textSize="24sp"
+                        android:text="Kyiv"
+                        android:layout_gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/tvArrivalTimeValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:textSize="24sp"
+                        android:text="13:30"
+                        android:layout_gravity="center" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvDateValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:text="10.10.2024"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="5dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvAircraft"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Aircraft"
+                        android:layout_gravity="center_horizontal"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cwModel"
+                            android:layout_width="195dp"
+                            android:layout_height="100dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginEnd="5dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Model"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="30dp"
+                                android:textSize="18sp"/>
+
+                            <TextView
+                                android:id="@+id/tvAircraftModelValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="30dp"
+                                android:text="AN - 2"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+
+                        </androidx.cardview.widget.CardView>
+
+
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cwRegistration"
+                            android:layout_width="195dp"
+                            android:layout_height="100dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginEnd="5dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Registration"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="30dp"
+                                android:textSize="18sp"/>
+
+                            <TextView
+                                android:id="@+id/tvAircraftRegistrationValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="DS322SDF"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="30dp"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"/>
+
+
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+
+
+
+
+                </LinearLayout>
+
+
+
+            </androidx.cardview.widget.CardView>
+
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cwSinglePilotTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cvAircraft"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Single pilot time"
+                        android:layout_gravity="center_horizontal"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cwSE"
+                            android:layout_width="195dp"
+                            android:layout_height="100dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginEnd="5dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/cwModel">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="SE"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="30dp"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"/>
+
+                            <TextView
+                                android:id="@+id/tvSinglePilotTimeSEValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="2:30"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="30dp"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"/>
+
+
+                        </androidx.cardview.widget.CardView>
+
+
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cwME"
+                            android:layout_width="195dp"
+                            android:layout_height="100dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginEnd="5dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/cwRegistration">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="ME"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="30dp"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"/>
+
+                            <TextView
+                                android:id="@+id/tvSinglePilotTimeMEValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="1:20"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="30dp"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"/>
+
+
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cwMultiPilotTime"
+                android:layout_width="131dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cwSinglePilotTime"
+                android:layout_margin="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Multi pilot time"
+                        android:layout_gravity="center_horizontal"/>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Time"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="20dp"/>
+
+                        <TextView
+                            android:id="@+id/tvMultiPilotTimeValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="3:25"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="20dp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:textSize="18sp"/>
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvTotalTimeOfFlight"
+                android:layout_width="131dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/cwMultiPilotTime"
+                app:layout_constraintTop_toBottomOf="@id/cwSinglePilotTime"
+                android:layout_margin="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Total time of flight"
+                        android:layout_gravity="center_horizontal"/>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Time"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="20dp"/>
+
+                        <TextView
+                            android:id="@+id/tvTotalTimeOfFlightValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="5:15"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="20dp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:textSize="18sp"/>
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvPicName"
+                android:layout_width="131dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cwSinglePilotTime"
+                android:layout_margin="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pic name"
+                        android:layout_gravity="center_horizontal"/>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Name"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="20dp"/>
+
+                        <TextView
+                            android:id="@+id/tvPicNameValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Andrew"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="20dp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:textSize="18sp"/>
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cwLandings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cvTotalTimeOfFlight"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Landings"
+                        android:layout_gravity="center_horizontal"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cwDay"
+                            android:layout_width="195dp"
+                            android:layout_height="100dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginEnd="5dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/cwModel">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Day"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="30dp"
+                                android:textSize="18sp"/>
+
+                            <TextView
+                                android:id="@+id/tvDayValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="2:30"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="30dp"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"/>
+
+
+                        </androidx.cardview.widget.CardView>
+
+
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cwNight"
+                            android:layout_width="195dp"
+                            android:layout_height="100dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginEnd="5dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/cwRegistration">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Night"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="30dp"
+                                android:textSize="18sp"/>
+
+                            <TextView
+                                android:id="@+id/tvNightValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="1:20"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="30dp"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"/>
+
+
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cwOperationalConditionTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cwLandings"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Operational condition time"
+                        android:layout_gravity="center_horizontal"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cwOPTNight"
+                            android:layout_width="195dp"
+                            android:layout_height="100dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginEnd="5dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/cwModel">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Night"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="30dp"
+                                android:textSize="18sp"/>
+
+                            <TextView
+                                android:id="@+id/tvOPTNightValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="2:30"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="30dp"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"/>
+
+
+                        </androidx.cardview.widget.CardView>
+
+
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cwOPTIfr"
+                            android:layout_width="195dp"
+                            android:layout_height="100dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginEnd="5dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/cwRegistration">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="IFR"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="30dp"
+                                android:textSize="18sp"/>
+
+                            <TextView
+                                android:id="@+id/tvOPTIfrValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="1:20"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="30dp"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"/>
+
+
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cwPilotFunctionTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cwOperationalConditionTime"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pilot function time"
+                        android:layout_gravity="center_horizontal"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cwPilotInComand"
+                            android:layout_width="90dp"
+                            android:layout_height="100dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginEnd="5dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/cwModel">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Pilot in comand"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="10dp"
+                                android:textSize="18sp"
+                                android:gravity="center"/>
+
+                            <TextView
+                                android:id="@+id/tvPilotInComandValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="2:30"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="30dp"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"/>
+
+
+                        </androidx.cardview.widget.CardView>
+
+
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cwCoPilot"
+                            android:layout_width="90dp"
+                            android:layout_height="100dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginEnd="5dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/cwRegistration">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Co-Pilot"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="30dp"
+                                android:textSize="18sp"/>
+
+                            <TextView
+                                android:id="@+id/tvCoPilotValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="1:20"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="30dp"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"/>
+
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cwDual"
+                            android:layout_width="90dp"
+                            android:layout_height="100dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginEnd="5dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/cwRegistration">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Dual"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="30dp"
+                                android:textSize="18sp"/>
+
+                            <TextView
+                                android:id="@+id/tvDualValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="1:20"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="30dp"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"/>
+
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cwInstructor"
+                            android:layout_width="90dp"
+                            android:layout_height="100dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginEnd="5dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/cwRegistration">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Instructor"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="30dp"
+                                android:textSize="18sp"/>
+
+                            <TextView
+                                android:id="@+id/tvInstructorValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="1:20"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="30dp"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"/>
+
+
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cwSyntheticTrainingDevicesSession"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cwPilotFunctionTime"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Synthetic training devices session"
+                        android:layout_gravity="center_horizontal"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cwDate"
+                            android:layout_width="124dp"
+                            android:layout_height="100dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginEnd="5dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/cwModel">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Date"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="30dp"
+                                android:textSize="18sp"
+                                android:gravity="center"/>
+
+                            <TextView
+                                android:id="@+id/tvSTDSDateValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="2:30"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="30dp"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"/>
+
+
+                        </androidx.cardview.widget.CardView>
+
+
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cwType"
+                            android:layout_width="124dp"
+                            android:layout_height="100dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginEnd="5dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/cwRegistration">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Type"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="30dp"
+                                android:textSize="18sp"/>
+
+                            <TextView
+                                android:id="@+id/tvSTDSTypeValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="1:20"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="30dp"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"/>
+
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cwTotalTimeOfSession"
+                            android:layout_width="124dp"
+                            android:layout_height="100dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginEnd="5dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/cwRegistration">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Total time of session"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="10dp"
+                                android:textSize="18sp"
+                                android:gravity="center"/>
+
+                            <TextView
+                                android:id="@+id/tvSTDSTotalTimeOfSessionValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="1:20"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="30dp"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"/>
+
+
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cwRemarksAndEndorsements"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cwSyntheticTrainingDevicesSession"
+                android:layout_margin="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="Remarks and endorsements"/>
+
+                    <TextView
+                        android:id="@+id/tvRemarksAndEndorsementsValue"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:text="Remarks"
+                        android:paddingStart="5dp"
+                        android:layout_marginTop="5dp"/>
+
+
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>
