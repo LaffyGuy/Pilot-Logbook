@@ -8,7 +8,6 @@ import androidx.lifecycle.viewModelScope
 import com.example.pilotlogbook.R
 import com.example.pilotlogbook.data.validation.DailyFlightForm
 import com.example.pilotlogbook.domain.EmptyAddFlightFieldException
-import com.example.pilotlogbook.domain.NotValidInputTimeException
 import com.example.pilotlogbook.domain.repositories.DailyFlightRepository
 import com.example.pilotlogbook.domain.settings.AddDailyFlightField
 import com.example.pilotlogbook.utils.Constance
@@ -107,10 +106,10 @@ class AddDailyFlightViewModel @Inject constructor(private val dailyFlightReposit
         _arrivalTime.value = arrivalTime
     }
 
-    fun updateTotalTimeOfFlight() {
-        viewModelScope.launch {
-            dailyFlightRepository.updateTotalTimeOfFlight()
-        }
-    }
+//    fun updateTotalTimeOfFlight() {
+//        viewModelScope.launch {
+//            dailyFlightRepository.updateTotalTimeOfFlight()
+//        }
+//    }
 
 }

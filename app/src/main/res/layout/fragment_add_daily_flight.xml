@@ -81,7 +81,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="48dp"
                             android:background="@drawable/border"
-                            android:hint="Place"
+                            android:hint="@string/add_flight_title_place"
                             android:drawableStart="@drawable/ic_add_flight_place"/>
 
 
@@ -90,7 +90,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="48dp"
                             android:background="@drawable/edit_text_without_border"
-                            android:text="Time"
+                            android:text="@string/add_flight_title_time"
                             android:textSize="18sp"
                             android:gravity="center_vertical"
                             app:drawableStartCompat="@drawable/add_flight_time" />
@@ -121,7 +121,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="48dp"
                             android:background="@drawable/border"
-                            android:hint="Place"
+                            android:hint="@string/add_flight_title_arrival_place"
                             android:drawableStart="@drawable/ic_add_flight_place"/>
 
 
@@ -130,7 +130,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="48dp"
                             android:background="@drawable/edit_text_without_border"
-                            android:text="Time"
+                            android:text="@string/add_flight_title_arrival_time"
                             android:textSize="18sp"
                             android:gravity="center_vertical"
                             app:drawableStartCompat="@drawable/add_flight_time" />
@@ -163,7 +163,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:background="@drawable/border"
-                    android:hint="Model"
+                    android:hint="@string/add_flight_title_model"
                     android:drawableStart="@drawable/ic_add_flight_model"/>
 
 
@@ -172,7 +172,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:background="@drawable/edit_text_without_border"
-                    android:hint="Registration"
+                    android:hint="@string/add_flight_title_registration"
                     android:drawableStart="@drawable/ic_add_flight_registration" />
 
             </LinearLayout>
@@ -199,7 +199,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:background="@drawable/border"
-                    android:hint="SE"
+                    android:hint="@string/add_flight_title_se"
                     android:drawableStart="@drawable/add_flight_time"
                     android:inputType="numberDecimal"/>
 
@@ -209,7 +209,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:background="@drawable/edit_text_without_border"
-                    android:hint="ME"
+                    android:hint="@string/add_flight_title_me"
                     android:drawableStart="@drawable/add_flight_time"
                     android:inputType="numberDecimal"/>
 
@@ -237,7 +237,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:background="@drawable/border"
-                    android:hint="Time"
+                    android:hint="@string/add_flight_title_mpt"
                     android:drawableStart="@drawable/add_flight_time"
                     android:inputType="numberDecimal"/>
 
@@ -265,7 +265,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:background="@drawable/border"
-                    android:hint="Total Time Of Flight"
+                    android:hint="@string/add_flight_title_ttof"
                     android:drawableStart="@drawable/add_flight_time"
                     android:inputType="numberDecimal"/>
 
@@ -294,7 +294,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:background="@drawable/border"
-                    android:hint="Name"
+                    android:hint="@string/add_flight_title_name"
                     android:drawableStart="@drawable/ic_add_flight_person"/>
 
             </LinearLayout>
@@ -322,7 +322,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:background="@drawable/border"
-                    android:hint="Day"
+                    android:hint="@string/add_flight_title_lanidng_day"
                     android:drawableStart="@drawable/ic_add_flight_landings_day"
                     android:inputType="numberDecimal"/>
 
@@ -332,7 +332,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:background="@drawable/edit_text_without_border"
-                    android:hint="Night"
+                    android:hint="@string/add_flight_title_landing_night"
                     android:drawableStart="@drawable/ic_add_flight_landings_night"
                     android:inputType="numberDecimal"/>
 
@@ -360,7 +360,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:background="@drawable/border"
-                    android:hint="Night"
+                    android:hint="@string/add_flight_title_opc_night"
                     android:drawableStart="@drawable/ic_add_flight_landings_day"
                     android:inputType="numberDecimal"/>
 
@@ -370,7 +370,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:background="@drawable/edit_text_without_border"
-                    android:hint="IFR"
+                    android:hint="@string/add_flight_title_opc_ifr"
                     android:drawableStart="@drawable/ic_add_flight_landings_night"
                     android:inputType="numberDecimal"/>
 
@@ -399,7 +399,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:background="@drawable/border"
-                    android:hint="Pilot in Comand"
+                    android:hint="@string/add_flight_title_pic"
                     android:drawableStart="@drawable/ic_add_flight_person"
                     android:inputType="numberDecimal"/>
 
@@ -409,7 +409,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:background="@drawable/border"
-                    android:hint="Co-Pilot"
+                    android:hint="@string/add_flight_title_co_pilot"
                     android:drawableStart="@drawable/ic_add_flight_co_pilot"
                     android:inputType="numberDecimal"/>
 
@@ -418,7 +418,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:background="@drawable/border"
-                    android:hint="Dual"
+                    android:hint="@string/add_flight_title_dual"
                     android:drawableStart="@drawable/ic_add_flight_dual"
                     android:inputType="numberDecimal"/>
 
@@ -428,7 +428,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:background="@drawable/edit_text_without_border"
-                    android:hint="Instructor"
+                    android:hint="@string/add_flight_title_instructor"
                     android:drawableStart="@drawable/ic_add_flight_instructor"
                     android:inputType="numberDecimal"/>
 
@@ -457,7 +457,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:background="@drawable/border"
-                    android:hint="Date"
+                    android:hint="@string/add_flight_title_stdsd_date"
                     android:drawableStart="@drawable/ic_add_flight_calendar"/>
 
 
@@ -466,7 +466,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:background="@drawable/border"
-                    android:hint="Type"
+                    android:hint="@string/add_flight_title_stdst_type"
                     android:drawableStart="@drawable/ic_add_flight_stds_type"/>
 
                 <EditText
@@ -474,7 +474,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:background="@drawable/border"
-                    android:hint="Total Time Of Session"
+                    android:hint="@string/add_flight_title_stdst_ttos"
                     android:drawableStart="@drawable/add_flight_time"
                     android:inputType="numberDecimal"/>
 
@@ -502,7 +502,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:background="@drawable/border"
-                    android:hint="Remarks And Endorsements"
+                    android:hint="@string/add_flight_title_remarks"
                     android:drawableStart="@drawable/ic_add_flight_remarks_and_endorsements"/>
 
             </LinearLayout>
@@ -517,7 +517,7 @@
                     android:id="@+id/btnAddDailyFlight"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:text="Add Daily Flight"
+                    android:text="@string/add_flight_title_add_daily_flight"
                     android:background="@color/oxid_green"/>
             </LinearLayout>
 

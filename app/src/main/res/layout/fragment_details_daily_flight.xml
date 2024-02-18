@@ -43,7 +43,7 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
                         android:textSize="24sp"
-                        android:text="Boyarka"
+                        android:text="@string/daily_flight_item_departure_title"
                         android:layout_gravity="center"/>
 
                     <TextView
@@ -52,7 +52,7 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
                         android:textSize="24sp"
-                        android:text="12:30"
+                        android:text="@string/daily_flight_item_departure_time_title"
                         android:layout_gravity="center"/>
 
                 </LinearLayout>
@@ -87,7 +87,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         android:textColor="@color/black"
                         android:textSize="24sp"
-                        android:text="Kyiv"
+                        android:text="@string/daily_flight_item_arrival_title"
                         android:layout_gravity="center"/>
 
                     <TextView
@@ -96,7 +96,7 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
                         android:textSize="24sp"
-                        android:text="13:30"
+                        android:text="@string/daily_flight_item_arrival_time_title"
                         android:layout_gravity="center" />
 
                 </LinearLayout>
@@ -109,7 +109,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:text="10.10.2024"/>
+                android:text="@string/daily_flight_item_date_title"/>
 
         </LinearLayout>
 
@@ -143,7 +143,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Aircraft"
+                        android:text="@string/add_flight_title_aircraft"
                         android:layout_gravity="center_horizontal"/>
 
                     <LinearLayout
@@ -165,7 +165,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Model"
+                                android:text="@string/add_flight_title_model"
                                 android:layout_gravity="center_horizontal"
                                 android:layout_marginTop="30dp"
                                 android:textSize="18sp"/>
@@ -176,7 +176,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_marginTop="30dp"
-                                android:text="AN - 2"
+                                android:text="@string/daily_flight_item_model_title"
                                 android:textColor="@color/black"
                                 android:textSize="18sp"
                                 android:textStyle="bold" />
@@ -199,7 +199,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Registration"
+                                android:text="@string/add_flight_title_registration"
                                 android:layout_gravity="center_horizontal"
                                 android:layout_marginTop="30dp"
                                 android:textSize="18sp"/>
@@ -208,7 +208,7 @@
                                 android:id="@+id/tvAircraftRegistrationValue"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="DS322SDF"
+                                android:text="@string/daily_flight_item_registration_title"
                                 android:layout_gravity="center"
                                 android:layout_marginTop="30dp"
                                 android:textStyle="bold"
@@ -251,7 +251,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Single pilot time"
+                        android:text="@string/add_flight_title_single_pilot_time"
                         android:layout_gravity="center_horizontal"/>
 
                     <LinearLayout
@@ -273,7 +273,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="SE"
+                                android:text="@string/add_flight_title_se"
                                 android:layout_gravity="center_horizontal"
                                 android:layout_marginTop="30dp"
                                 android:textStyle="bold"
@@ -284,7 +284,7 @@
                                 android:id="@+id/tvSinglePilotTimeSEValue"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="2:30"
+                                android:text="@string/details_daily_flight_se_time"
                                 android:layout_gravity="center"
                                 android:layout_marginTop="30dp"
                                 android:textStyle="bold"
@@ -309,7 +309,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="ME"
+                                android:text="@string/add_flight_title_me"
                                 android:layout_gravity="center_horizontal"
                                 android:layout_marginTop="30dp"
                                 android:textStyle="bold"
@@ -320,7 +320,7 @@
                                 android:id="@+id/tvSinglePilotTimeMEValue"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="1:20"
+                                android:text="@string/details_daily_flight_me_time"
                                 android:layout_gravity="center"
                                 android:layout_marginTop="30dp"
                                 android:textStyle="bold"
@@ -352,7 +352,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Multi pilot time"
+                        android:text="@string/add_flight_title_multi_pilot_time"
                         android:layout_gravity="center_horizontal"/>
 
                     <androidx.cardview.widget.CardView
@@ -362,7 +362,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Time"
+                            android:text="@string/details_daily_flight_multi_pilot_time_title"
                             android:layout_gravity="center_horizontal"
                             android:layout_marginTop="20dp"/>
 
@@ -370,7 +370,7 @@
                             android:id="@+id/tvMultiPilotTimeValue"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="3:25"
+                            android:text="@string/details_daily_flight_multi_pilot_time"
                             android:layout_gravity="center"
                             android:layout_marginTop="20dp"
                             android:textStyle="bold"
@@ -399,7 +399,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Total time of flight"
+                        android:text="@string/add_flight_title_total_time_of_flight"
                         android:layout_gravity="center_horizontal"/>
 
                     <androidx.cardview.widget.CardView
@@ -409,7 +409,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Time"
+                            android:text="@string/details_daily_flight_total_time_of_flight_title"
                             android:layout_gravity="center_horizontal"
                             android:layout_marginTop="20dp"/>
 
@@ -417,7 +417,7 @@
                             android:id="@+id/tvTotalTimeOfFlightValue"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="5:15"
+                            android:text="@string/details_daily_flight_total_time_of_flight_time"
                             android:layout_gravity="center"
                             android:layout_marginTop="20dp"
                             android:textStyle="bold"
@@ -446,7 +446,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Pic name"
+                        android:text="@string/details_daily_flight_pic_name_time"
                         android:layout_gravity="center_horizontal"/>
 
                     <androidx.cardview.widget.CardView
@@ -456,7 +456,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Name"
+                            android:text="@string/details_daily_flight_pic_name_time_title"
                             android:layout_gravity="center_horizontal"
                             android:layout_marginTop="20dp"/>
 
@@ -464,7 +464,7 @@
                             android:id="@+id/tvPicNameValue"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Andrew"
+                            android:text="@string/details_daily_flight_pic_name"
                             android:layout_gravity="center"
                             android:layout_marginTop="20dp"
                             android:textStyle="bold"
@@ -497,7 +497,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Landings"
+                        android:text="@string/details_daily_flight_landings_time"
                         android:layout_gravity="center_horizontal"/>
 
                     <LinearLayout
@@ -519,7 +519,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Day"
+                                android:text="@string/details_daily_flight_landings_day_time_title"
                                 android:layout_gravity="center_horizontal"
                                 android:layout_marginTop="30dp"
                                 android:textSize="18sp"/>
@@ -528,7 +528,7 @@
                                 android:id="@+id/tvDayValue"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="2:30"
+                                android:text="@string/details_daily_flight_landings_day_time"
                                 android:layout_gravity="center"
                                 android:layout_marginTop="30dp"
                                 android:textStyle="bold"
@@ -553,7 +553,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Night"
+                                android:text="@string/details_daily_flight_landings_night_time_title"
                                 android:layout_gravity="center_horizontal"
                                 android:layout_marginTop="30dp"
                                 android:textSize="18sp"/>
@@ -562,7 +562,7 @@
                                 android:id="@+id/tvNightValue"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="1:20"
+                                android:text="@string/details_daily_flight_landings_night_time"
                                 android:layout_gravity="center"
                                 android:layout_marginTop="30dp"
                                 android:textStyle="bold"
@@ -598,7 +598,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Operational condition time"
+                        android:text="@string/details_daily_flight_opr_time"
                         android:layout_gravity="center_horizontal"/>
 
                     <LinearLayout
@@ -620,7 +620,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Night"
+                                android:text="@string/details_daily_flight_opr_night_time_title"
                                 android:layout_gravity="center_horizontal"
                                 android:layout_marginTop="30dp"
                                 android:textSize="18sp"/>
@@ -629,7 +629,7 @@
                                 android:id="@+id/tvOPTNightValue"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="2:30"
+                                android:text="@string/details_daily_flight_opr_night_time"
                                 android:layout_gravity="center"
                                 android:layout_marginTop="30dp"
                                 android:textStyle="bold"
@@ -654,7 +654,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="IFR"
+                                android:text="@string/details_daily_flight_opr_ifr_time_title"
                                 android:layout_gravity="center_horizontal"
                                 android:layout_marginTop="30dp"
                                 android:textSize="18sp"/>
@@ -663,7 +663,7 @@
                                 android:id="@+id/tvOPTIfrValue"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="1:20"
+                                android:text="@string/details_daily_flight_opr_ifr_time"
                                 android:layout_gravity="center"
                                 android:layout_marginTop="30dp"
                                 android:textStyle="bold"
@@ -699,7 +699,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Pilot function time"
+                        android:text="@string/details_daily_flight_pft_time"
                         android:layout_gravity="center_horizontal"/>
 
                     <LinearLayout
@@ -721,7 +721,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Pilot in comand"
+                                android:text="@string/details_daily_flight_pft_pic_time_title"
                                 android:layout_gravity="center_horizontal"
                                 android:layout_marginTop="10dp"
                                 android:textSize="18sp"
@@ -731,7 +731,7 @@
                                 android:id="@+id/tvPilotInComandValue"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="2:30"
+                                android:text="@string/details_daily_flight_pft_pic_time"
                                 android:layout_gravity="center"
                                 android:layout_marginTop="30dp"
                                 android:textStyle="bold"
@@ -756,7 +756,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Co-Pilot"
+                                android:text="@string/details_daily_flight_pft_co_pilot_time_title"
                                 android:layout_gravity="center_horizontal"
                                 android:layout_marginTop="30dp"
                                 android:textSize="18sp"/>
@@ -765,7 +765,7 @@
                                 android:id="@+id/tvCoPilotValue"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="1:20"
+                                android:text="@string/details_daily_flight_pft_co_pilot_time"
                                 android:layout_gravity="center"
                                 android:layout_marginTop="30dp"
                                 android:textStyle="bold"
@@ -788,7 +788,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Dual"
+                                android:text="@string/details_daily_flight_pft_dual_time_title"
                                 android:layout_gravity="center_horizontal"
                                 android:layout_marginTop="30dp"
                                 android:textSize="18sp"/>
@@ -797,7 +797,7 @@
                                 android:id="@+id/tvDualValue"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="1:20"
+                                android:text="@string/details_daily_flight_pft_dual_time"
                                 android:layout_gravity="center"
                                 android:layout_marginTop="30dp"
                                 android:textStyle="bold"
@@ -820,7 +820,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Instructor"
+                                android:text="@string/details_daily_flight_pft_instructor_time_title"
                                 android:layout_gravity="center_horizontal"
                                 android:layout_marginTop="30dp"
                                 android:textSize="18sp"/>
@@ -829,7 +829,7 @@
                                 android:id="@+id/tvInstructorValue"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="1:20"
+                                android:text="@string/details_daily_flight_pft_instructor_time"
                                 android:layout_gravity="center"
                                 android:layout_marginTop="30dp"
                                 android:textStyle="bold"
@@ -865,7 +865,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Synthetic training devices session"
+                        android:text="@string/details_daily_flight_stds_time"
                         android:layout_gravity="center_horizontal"/>
 
                     <LinearLayout
@@ -887,7 +887,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Date"
+                                android:text="@string/details_daily_flight_stds_time_date_title"
                                 android:layout_gravity="center_horizontal"
                                 android:layout_marginTop="30dp"
                                 android:textSize="18sp"
@@ -897,7 +897,7 @@
                                 android:id="@+id/tvSTDSDateValue"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="2:30"
+                                android:text="@string/details_daily_flight_stds_date_time"
                                 android:layout_gravity="center"
                                 android:layout_marginTop="30dp"
                                 android:textStyle="bold"
@@ -922,7 +922,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Type"
+                                android:text="@string/details_daily_flight_stds_type_time_title"
                                 android:layout_gravity="center_horizontal"
                                 android:layout_marginTop="30dp"
                                 android:textSize="18sp"/>
@@ -931,7 +931,7 @@
                                 android:id="@+id/tvSTDSTypeValue"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="1:20"
+                                android:text="@string/details_daily_flight_stds_type_time"
                                 android:layout_gravity="center"
                                 android:layout_marginTop="30dp"
                                 android:textStyle="bold"
@@ -954,7 +954,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Total time of session"
+                                android:text="@string/details_daily_flight_stds_ttos_time_title"
                                 android:layout_gravity="center_horizontal"
                                 android:layout_marginTop="10dp"
                                 android:textSize="18sp"
@@ -964,7 +964,7 @@
                                 android:id="@+id/tvSTDSTotalTimeOfSessionValue"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="1:20"
+                                android:text="@string/details_daily_flight_stds_ttos_time"
                                 android:layout_gravity="center"
                                 android:layout_marginTop="30dp"
                                 android:textStyle="bold"
@@ -998,7 +998,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:text="Remarks and endorsements"/>
+                        android:text="@string/details_daily_flight_remarks_and_endorsements_time"/>
 
                     <TextView
                         android:id="@+id/tvRemarksAndEndorsementsValue"
@@ -1007,7 +1007,7 @@
                         android:textStyle="bold"
                         android:textColor="@color/black"
                         android:textSize="18sp"
-                        android:text="Remarks"
+                        android:text="@string/details_daily_flight_remarks_time"
                         android:paddingStart="5dp"
                         android:layout_marginTop="5dp"/>
 

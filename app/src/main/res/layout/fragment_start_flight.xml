@@ -7,15 +7,25 @@
     tools:context=".presentation.screens.fragments.logbook.StartFlightFragment">
 
 
-    <TextView
-        android:id="@+id/tvStartFlight"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/btnStartFlight"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:textSize="30sp"
-        android:text="Start Flight Fragment"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="50dp"
+        android:text="@string/start_flight"/>
+
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/mapView"
+        android:layout_width="0dp"
+        android:layout_height="400dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        android:layout_marginTop="100dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

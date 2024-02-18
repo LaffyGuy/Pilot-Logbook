@@ -23,7 +23,7 @@ data class DailyFlightEntity(
     @Embedded val arrival: ArrivalTuple?,
     @Embedded val aircraft: AircraftTuple,
     @Embedded val singlePilotTime: SinglePilotTimeTuple?,
-    val multiPilotTime: Double?,
+    val multiPilotTime: Long?,
     val totalTimeOffFlight: Long?,
     val picName: String?,
     @Embedded val landings: LandingsTuple?,

@@ -25,7 +25,6 @@ class SplashViewModel @Inject constructor(private val accountRepository: Account
 
     init {
         viewModelScope.launch(Dispatchers.IO) {
-            delay(2000)
             _isSignedIn.postValue(isSignedIn())
         }
     }

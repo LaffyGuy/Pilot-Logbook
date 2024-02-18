@@ -49,7 +49,8 @@ class SignUpFragment : Fragment() {
             bindingClass.etLastName.text.toString(),
             bindingClass.etEmail.text.toString(),
             bindingClass.etPassword.text.toString(),
-            bindingClass.etRepeatPassword.text.toString())
+            bindingClass.etRepeatPassword.text.toString()
+        )
         signUpViewModel.createAccount(signUp)
 
     }

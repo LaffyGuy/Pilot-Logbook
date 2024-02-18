@@ -20,16 +20,29 @@
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.pilotlogbook.presentation.screens.fragments.logbook.ProfileFragment"
+        android:name="com.example.pilotlogbook.presentation.screens.fragments.logbook.profile.ProfileFragment"
         android:label="Profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
+    </fragment>
     <fragment
         android:id="@+id/detailsDailyFlightFragment"
         android:name="com.example.pilotlogbook.presentation.screens.fragments.logbook.DetailsDailyFlightFragment"
-        android:label="fragment_details_daily_flight"
-        tools:layout="@layout/fragment_details_daily_flight" >
+        android:label="Details"
+        tools:layout="@layout/fragment_details_daily_flight">
         <argument
             android:name="dailyFlight"
             app:argType="com.example.pilotlogbook.domain.entities.DailyFlight" />
+    </fragment>
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.example.pilotlogbook.presentation.screens.fragments.logbook.profile.EditProfileFragment"
+        android:label="Edit Profile"
+        tools:layout="@layout/fragment_edit_profile">
+        <argument
+            android:name="profileInfo"
+            app:argType="com.example.pilotlogbook.presentation.screens.fragments.logbook.profile.ProfileFragment$AccountInfo" />
     </fragment>
 </navigation>

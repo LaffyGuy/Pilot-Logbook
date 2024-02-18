@@ -15,7 +15,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:textSize="30sp"
-        android:text="Sign Up"
+        android:text="@string/sign_up"
         android:layout_marginTop="40dp"
         android:textColor="@color/white"
         android:textStyle="bold"/>
@@ -29,7 +29,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvSignUp"
         android:layout_marginTop="50dp"
-        android:hint="Name"
+        android:hint="@string/sign_up_name"
         android:background="@drawable/white_background_edit_text"
         android:paddingStart="5dp"
         android:drawableStart="@drawable/ic_add_flight_person"
@@ -45,7 +45,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/etName"
         android:layout_marginTop="40dp"
-        android:hint="Last Name"
+        android:hint="@string/sign_up_lastName"
         android:background="@drawable/white_background_edit_text"
         android:paddingStart="5dp"
         android:drawableStart="@drawable/ic_add_flight_co_pilot"
@@ -61,7 +61,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/etLastName"
         android:layout_marginTop="40dp"
-        android:hint="Email"
+        android:hint="@string/sign_up_email"
         android:background="@drawable/white_background_edit_text"
         android:paddingStart="5dp"
         android:drawableStart="@drawable/ic_email"
@@ -77,7 +77,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/etEmail"
         android:layout_marginTop="40dp"
-        android:hint="Password"
+        android:hint="@string/sign_up_password"
         android:background="@drawable/white_background_edit_text"
         android:paddingStart="5dp"
         android:drawableStart="@drawable/ic_lock"
@@ -93,7 +93,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/etPassword"
         android:layout_marginTop="40dp"
-        android:hint="Repeat Password"
+        android:hint="@string/sign_up_repeat_password"
         android:background="@drawable/white_background_edit_text"
         android:paddingStart="5dp"
         android:drawableStart="@drawable/ic_lock"
@@ -108,7 +108,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/etRepeatPassword"
         android:layout_marginTop="30dp"
-        android:text="Sign Up"/>
+        android:text="@string/btn_sign_up"/>
 
     <ProgressBar
         android:id="@+id/progressBar"

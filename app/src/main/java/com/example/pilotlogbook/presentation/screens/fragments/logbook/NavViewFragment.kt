@@ -1,9 +1,7 @@
 package com.example.pilotlogbook.presentation.screens.fragments.logbook
 
 import android.annotation.SuppressLint
-import android.media.Image
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -24,7 +22,6 @@ import com.example.pilotlogbook.domain.settings.AppSettings
 import com.example.pilotlogbook.domain.settings.SharedPreferencesAppSettings
 import com.example.pilotlogbook.presentation.viewmodels.logbookviewmodel.ProfileViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
@@ -78,16 +75,10 @@ class NavViewFragment : Fragment() {
 
         viewLifecycleOwner.lifecycleScope.launch {
             profileViewModel.findAccountById(appSettings.getCurrentAccountId()).collect{ account ->
-                Log.d("MyTag", "ImagePath - ${account?.imagePath}")
                 account?.let {
                     headerText.text = "${it.firstName} ${it.lastName}"
                     Glide.with(this@NavViewFragment).load(account.imagePath).placeholder(R.drawable.ic_add_flight_person).into(headerImage)
                 }
-//                if(account?.imagePath != null){
-//                    Glide.with(requireContext()).load(account.imagePath).into(headerImage)
-//                }else{
-//                    Glide.with(requireContext()).load(R.drawable.ic_add_flight_person).into(headerImage)
-//                }
             }
         }
 

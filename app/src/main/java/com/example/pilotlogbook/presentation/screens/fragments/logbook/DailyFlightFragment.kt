@@ -23,6 +23,7 @@ import com.example.pilotlogbook.adapter.DefaultLoadStateAdapter
 import com.example.pilotlogbook.databinding.FragmentDailyFlightBinding
 import com.example.pilotlogbook.domain.entities.DailyFlight
 import com.example.pilotlogbook.presentation.viewmodels.logbookviewmodel.DailyFlightViewModel
+import com.example.pilotlogbook.utils.SortType
 import com.example.pilotlogbook.utils.activityNavController
 import com.example.pilotlogbook.utils.simpleScan
 import dagger.hilt.android.AndroidEntryPoint
@@ -43,8 +44,6 @@ class DailyFlightFragment : Fragment(), MenuProvider {
     ): View? {
         bindingClass = FragmentDailyFlightBinding.inflate(layoutInflater)
 
-
-
         return bindingClass.root
     }
 
@@ -59,9 +58,6 @@ class DailyFlightFragment : Fragment(), MenuProvider {
 
         setUpSwipeToRefresh()
 
-
-
-
         bindingClass.etSearch.setOnQueryTextListener(object : OnQueryTextListener{
             override fun onQueryTextSubmit(p0: String?): Boolean {
                 return false
@@ -75,7 +71,7 @@ class DailyFlightFragment : Fragment(), MenuProvider {
 
         })
 
-
+        dailyFlightViewModel.setSortType(SortType.DEFAULT)
 
     }
 
@@ -97,6 +93,11 @@ class DailyFlightFragment : Fragment(), MenuProvider {
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
         when(menuItem.itemId){
             R.id.addDailyFlightFragmentToolBar -> navigateToAddDailyFlightFragment()
+            R.id.standard -> dailyFlightViewModel.setSortType(SortType.DEFAULT)
+            R.id.newItem -> dailyFlightViewModel.setSortType(SortType.DATE_DESC)
+            R.id.old -> dailyFlightViewModel.setSortType(SortType.DATE_ASC)
+            R.id.timeFlightDesc -> dailyFlightViewModel.setSortType(SortType.TTF_DESC)
+            R.id.timeFlightAsc -> dailyFlightViewModel.setSortType(SortType.TTF_ASC)
         }
         return true
     }

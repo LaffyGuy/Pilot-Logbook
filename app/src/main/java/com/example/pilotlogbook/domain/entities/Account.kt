@@ -6,5 +6,6 @@ data class Account(
     val lastName: String,
     val email: String,
     val createAt: Long,
-    val totalDailyFlightTime: Long
+    val totalDailyFlightTime: Long?,
+    val imagePath: String?
 )

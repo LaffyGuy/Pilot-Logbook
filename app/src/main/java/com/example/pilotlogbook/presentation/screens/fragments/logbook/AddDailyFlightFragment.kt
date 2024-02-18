@@ -26,9 +26,6 @@ class AddDailyFlightFragment : Fragment(){
    lateinit var bindingClass: FragmentAddDailyFlightBinding
    private val addDailyFlightViewModel by viewModels<AddDailyFlightViewModel>()
 
-
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -90,7 +87,6 @@ class AddDailyFlightFragment : Fragment(){
 
         bindingClass.btnAddDailyFlight.setOnClickListener {
             addDailyFlight()
-            addDailyFlightViewModel.updateTotalTimeOfFlight()
         }
 
     }
@@ -139,22 +135,22 @@ class AddDailyFlightFragment : Fragment(){
             arrivalTime,
             bindingClass.etAircraftModel.text.toString(),
             bindingClass.etAircraftRegistration.text.toString(),
-            bindingClass.etSinglePilotTimeSe.text.toString().toDoubleOrNull(),
-            bindingClass.etSinglePilotTimeMe.text.toString().toDoubleOrNull(),
-            bindingClass.etMultiPilotTime.text.toString().toDoubleOrNull(),
+            bindingClass.etSinglePilotTimeSe.text.toString().toLongOrNull(),
+            bindingClass.etSinglePilotTimeMe.text.toString().toLongOrNull(),
+            bindingClass.etMultiPilotTime.text.toString().toLongOrNull(),
             convertTime(),
             bindingClass.etPicName.text.toString(),
             bindingClass.etLandingsDay.text.toString().toIntOrNull(),
             bindingClass.etLandingsNight.text.toString().toIntOrNull(),
-            bindingClass.etOPCNight.text.toString().toDoubleOrNull(),
-            bindingClass.etOPCIfr.text.toString().toDoubleOrNull(),
-            bindingClass.etPilotInComand.text.toString().toDoubleOrNull(),
-            bindingClass.etCoPilot.text.toString().toDoubleOrNull(),
-            bindingClass.etDual.text.toString().toDoubleOrNull(),
-            bindingClass.etInstructor.text.toString().toDoubleOrNull(),
+            bindingClass.etOPCNight.text.toString().toLongOrNull(),
+            bindingClass.etOPCIfr.text.toString().toLongOrNull(),
+            bindingClass.etPilotInComand.text.toString().toLongOrNull(),
+            bindingClass.etCoPilot.text.toString().toLongOrNull(),
+            bindingClass.etDual.text.toString().toLongOrNull(),
+            bindingClass.etInstructor.text.toString().toLongOrNull(),
             bindingClass.etSTDSDate.text.toString(),
             bindingClass.etSTDSType.text.toString(),
-            bindingClass.etSTDSTotalTimeOfSession.text.toString().toDoubleOrNull(),
+            bindingClass.etSTDSTotalTimeOfSession.text.toString().toLongOrNull(),
             bindingClass.etRemarksAndEndorsements.text.toString())
         addDailyFlightViewModel.addDailyFlight(dailyFlightForm)
     }
@@ -169,9 +165,6 @@ class AddDailyFlightFragment : Fragment(){
             fillError(bindingClass.etAircraftModel, it.modelErrorMessage)
             fillError(bindingClass.etAircraftRegistration, it.registrationErrorMessage)
             fillError(bindingClass.etTotalTimeOfFlight, it.totalTimeOfFlightErrorMessage)
-
-//            bindingClass.progressBar.visibility = if(it.showProgress) View.VISIBLE else View.INVISIBLE
-
         }
     }
 

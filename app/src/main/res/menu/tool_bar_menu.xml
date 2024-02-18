@@ -5,7 +5,27 @@
         <item
             android:id="@+id/addDailyFlightFragmentToolBar"
             android:icon="@drawable/ic_add_new_daily_flight_log"
-            android:title="Add Daily Flight Log"
+            android:title="@string/add_daily_flight_log"
             app:showAsAction="always" />
+
+        <item
+            android:id="@+id/standard"
+            android:title="@string/tool_bar_menu_default"/>
+
+        <item
+            android:id="@+id/newItem"
+            android:title="@string/date_desc"/>
+
+        <item
+            android:id="@+id/old"
+            android:title="@string/date_asc"/>
+
+        <item
+            android:id="@+id/timeFlightDesc"
+            android:title="@string/time_flight_desc"/>
+
+        <item
+            android:id="@+id/timeFlightAsc"
+            android:title="@string/time_flight_asc"/>
 
 </menu>

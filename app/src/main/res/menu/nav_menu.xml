@@ -6,23 +6,23 @@
 
         <item android:id="@+id/startFlightFragment"
             android:icon="@drawable/ic_start_flight"
-            android:title="Start Flight"/>
+            android:title="@string/nav_menu_start_flight"/>
 
         <item android:id="@+id/dailyFlightFragment"
             android:icon="@drawable/ic_note"
-            android:title="Daily Fragment"/>
+            android:title="@string/daily_fragment"/>
 
 
-    <item android:title="Settings">
+    <item android:title="@string/nav_menu_settings">
 
         <menu>
             <item android:id="@+id/profileFragment"
                 android:icon="@drawable/ic_account"
-                android:title="Account"/>
+                android:title="@string/account"/>
 
             <item android:id="@+id/logOut"
                 android:icon="@drawable/ic_logout"
-                android:title="Logout"/>
+                android:title="@string/logout"/>
 
         </menu>
 

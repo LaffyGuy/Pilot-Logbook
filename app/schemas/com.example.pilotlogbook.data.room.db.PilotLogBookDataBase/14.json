@@ -1,0 +1,244 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 14,
+    "identityHash": "89d3486b751908b81fed8fc10018bb72",
+    "entities": [
+      {
+        "tableName": "daily_flight_table",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `date` INTEGER, `multiPilotTime` INTEGER, `totalTimeOffFlight` INTEGER, `picName` TEXT, `remarksAndEndorsements` TEXT, `departure_place` TEXT, `departure_time` INTEGER, `arrival_place` TEXT, `arrival_time` INTEGER, `model` TEXT NOT NULL, `registration` TEXT NOT NULL, `se` INTEGER, `me` INTEGER, `day` INTEGER, `landings_night` INTEGER, `operation_night` INTEGER, `ifr` INTEGER, `pilotInComand` INTEGER, `coPilot` INTEGER, `dual` INTEGER, `instructor` INTEGER, `synthetic_date` TEXT, `type` TEXT, `totalTimeOfSession` INTEGER)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "date",
+            "columnName": "date",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "multiPilotTime",
+            "columnName": "multiPilotTime",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "totalTimeOffFlight",
+            "columnName": "totalTimeOffFlight",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "picName",
+            "columnName": "picName",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "remarksAndEndorsements",
+            "columnName": "remarksAndEndorsements",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "departure.place",
+            "columnName": "departure_place",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "departure.time",
+            "columnName": "departure_time",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "arrival.place",
+            "columnName": "arrival_place",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "arrival.time",
+            "columnName": "arrival_time",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "aircraft.model",
+            "columnName": "model",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "aircraft.registration",
+            "columnName": "registration",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "singlePilotTime.se",
+            "columnName": "se",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "singlePilotTime.me",
+            "columnName": "me",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "landings.day",
+            "columnName": "day",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "landings.night",
+            "columnName": "landings_night",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "operationalConditionTime.night",
+            "columnName": "operation_night",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "operationalConditionTime.ifr",
+            "columnName": "ifr",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "pilotFunctionTime.pilotInComand",
+            "columnName": "pilotInComand",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "pilotFunctionTime.coPilot",
+            "columnName": "coPilot",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "pilotFunctionTime.dual",
+            "columnName": "dual",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "pilotFunctionTime.instructor",
+            "columnName": "instructor",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "syntheticTrainingDevicesSession.date",
+            "columnName": "synthetic_date",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "syntheticTrainingDevicesSession.type",
+            "columnName": "type",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "syntheticTrainingDevicesSession.totalTimeOfSession",
+            "columnName": "totalTimeOfSession",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "account_table",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `firstName` TEXT NOT NULL, `lastName` TEXT NOT NULL, `email` TEXT NOT NULL COLLATE NOCASE, `password` TEXT NOT NULL, `createAt` INTEGER NOT NULL, `totalDailyFlightTime` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "firstName",
+            "columnName": "firstName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lastName",
+            "columnName": "lastName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "email",
+            "columnName": "email",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "password",
+            "columnName": "password",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "createAt",
+            "columnName": "createAt",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "totalDailyFlightTime",
+            "columnName": "totalDailyFlightTime",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_account_table_email",
+            "unique": true,
+            "columnNames": [
+              "email"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_account_table_email` ON `${TABLE_NAME}` (`email`)"
+          }
+        ],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '89d3486b751908b81fed8fc10018bb72')"
+    ]
+  }
+}

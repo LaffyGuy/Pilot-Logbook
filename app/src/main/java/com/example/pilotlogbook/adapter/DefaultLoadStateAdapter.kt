@@ -12,7 +12,7 @@ import com.example.pilotlogbook.databinding.PartResultBinding
 class DefaultLoadStateAdapter: LoadStateAdapter<DefaultLoadStateAdapter.DefaultLoadStateHolder>() {
     class DefaultLoadStateHolder(
         private val binding: PartResultBinding,
-        private val swipeRefreshLayout: SwipeRefreshLayout?,
+        private val swipeRefreshLayout: SwipeRefreshLayout?
         ): RecyclerView.ViewHolder(binding.root) {
 
 

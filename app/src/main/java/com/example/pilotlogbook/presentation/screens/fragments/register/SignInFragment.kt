@@ -33,9 +33,9 @@ class SignInFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-//        bindingClass.btnSingUp.setOnClickListener {
-//            navigateToSignUpFragment()
-//        }
+        bindingClass.tvSignUp.setOnClickListener {
+            navigateToSignUpFragment()
+        }
 
         bindingClass.btnLogin.setOnClickListener {
           signIn()

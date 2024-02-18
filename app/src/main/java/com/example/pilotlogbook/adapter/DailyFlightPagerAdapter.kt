@@ -11,8 +11,6 @@ import com.example.pilotlogbook.databinding.DailyFlightItemBinding
 import com.example.pilotlogbook.domain.entities.DailyFlight
 import com.example.pilotlogbook.utils.convertLongToDate
 import com.example.pilotlogbook.utils.convertLongToTime
-import java.text.SimpleDateFormat
-import java.util.Locale
 
 
 interface DailyFlightAction {
@@ -44,8 +42,13 @@ class DailyFlightPagerAdapter(private val dailyFlightAction: DailyFlightAction):
     }
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
-        val currentDailyFlight = getItem(position) ?: return
-        holder.bind(currentDailyFlight)
+        val currentDailyFlight = getItem(position)
+        if(currentDailyFlight == null){
+            holder.binding
+        }else{
+            holder.bind(currentDailyFlight)
+        }
+
 
         holder.itemView.tag = currentDailyFlight
 

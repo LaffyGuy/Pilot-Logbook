@@ -12,8 +12,8 @@ data class SignUp(
     val lastName: String,
     val email: String,
     val password: String,
-    val repeatPassword: String,
-){
+    val repeatPassword: String)
+{
 
     fun validate(){
         if(firstName.isBlank()) throw EmptyFieldException(Field.FirstName)

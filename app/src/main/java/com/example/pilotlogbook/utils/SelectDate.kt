@@ -3,13 +3,7 @@ package com.example.pilotlogbook.utils
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.content.Context
-import android.text.format.DateFormat
-import android.util.Log
-import android.widget.TextView
-import com.google.android.material.timepicker.TimeFormat
-import java.text.SimpleDateFormat
 import java.util.Calendar
-import java.util.Locale
 
 class SelectDate(private val context: Context) {
 

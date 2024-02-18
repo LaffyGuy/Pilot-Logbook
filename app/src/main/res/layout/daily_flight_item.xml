@@ -31,7 +31,7 @@
                 android:id="@+id/tvDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="12.12.2023"
+                android:text="@string/daily_flight_item_date_title"
                 android:textColor="@color/black"
                 android:layout_marginTop="5dp"
                 android:layout_marginStart="5dp"
@@ -56,7 +56,7 @@
                 android:id="@+id/tvModel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="AN-2"
+                android:text="@string/daily_flight_item_model_title"
                 android:textColor="@color/black"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="5dp"
@@ -82,7 +82,7 @@
                 android:id="@+id/tvRegistration"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="AB1JDN41"
+                android:text="@string/daily_flight_item_registration_title"
                 android:textColor="@color/black"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="5dp"
@@ -106,7 +106,7 @@
                 android:id="@+id/tvTotalTimeToFlight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1"
+                android:text="@string/daily_flight_item_ttof_title"
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 android:layout_marginStart="5dp"/>
@@ -149,7 +149,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:textSize="24sp"
-                android:text="Boyarka"
+                android:text="@string/daily_flight_item_departure_title"
                 android:layout_gravity="center"/>
 
             <TextView
@@ -158,7 +158,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:textSize="24sp"
-                android:text="12:30"
+                android:text="@string/daily_flight_item_departure_time_title"
                 android:layout_gravity="center"/>
 
         </LinearLayout>
@@ -173,11 +173,11 @@
             android:layout_marginTop="40dp"/>
 
        <LinearLayout
-           android:layout_width="wrap_content"
+           android:layout_width="100dp"
            android:layout_height="wrap_content"
            android:orientation="vertical"
            android:gravity="end"
-           android:layout_marginEnd="50dp"
+           android:layout_marginEnd="10dp"
            android:layout_marginStart="10dp">
 
            <ImageView
@@ -194,7 +194,7 @@
                app:layout_constraintEnd_toEndOf="parent"
                android:textColor="@color/black"
                android:textSize="24sp"
-               android:text="Kyiv"
+               android:text="@string/daily_flight_item_arrival_title"
                android:layout_gravity="center"/>
 
            <TextView
@@ -203,7 +203,7 @@
                android:layout_height="wrap_content"
                android:textColor="@color/black"
                android:textSize="24sp"
-               android:text="13:30"
+               android:text="@string/daily_flight_item_arrival_time_title"
                android:layout_gravity="center" />
 
        </LinearLayout>

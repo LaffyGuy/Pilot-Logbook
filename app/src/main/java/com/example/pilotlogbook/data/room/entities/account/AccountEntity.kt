@@ -2,10 +2,8 @@ package com.example.pilotlogbook.data.room.entities.account
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
-import androidx.room.ForeignKey
 import androidx.room.Index
 import androidx.room.PrimaryKey
-import com.example.pilotlogbook.data.room.entities.dailyflight.DailyFlightEntity
 import com.example.pilotlogbook.domain.entities.Account
 import com.example.pilotlogbook.data.validation.SignUp
 
@@ -14,15 +12,6 @@ import com.example.pilotlogbook.data.validation.SignUp
     indices = [
        Index("email", unique = true)
     ],
-//    foreignKeys = [
-//        ForeignKey(
-//            entity = DailyFlightEntity::class,
-//            parentColumns = ["totalTimeOffFlight"],
-//            childColumns = ["totalDailyFlightTime"],
-//            onDelete = ForeignKey.CASCADE,
-//            onUpdate = ForeignKey.CASCADE
-//        )
-//    ]
 )
 data class AccountEntity(
     @PrimaryKey(autoGenerate = true)
@@ -32,7 +21,8 @@ data class AccountEntity(
     @ColumnInfo(collate = ColumnInfo.NOCASE)val email: String,
     val password: String,
     val createAt: Long,
-    val totalDailyFlightTime: Long = 0
+    val totalDailyFlightTime: Long?,
+    val imagePath: String?
 ) {
     fun toAccount(): Account = Account(
         id = id,
@@ -40,7 +30,8 @@ data class AccountEntity(
         lastName = lastName,
         email = email,
         createAt = createAt,
-        totalDailyFlightTime = totalDailyFlightTime
+        totalDailyFlightTime = totalDailyFlightTime,
+        imagePath = imagePath.toString()
     )
 
     companion object {
@@ -51,7 +42,8 @@ data class AccountEntity(
             email = signUp.email,
             password = signUp.password,
             createAt = System.currentTimeMillis(),
-            totalDailyFlightTime = 0
+            totalDailyFlightTime = 0,
+            imagePath = null
         )
     }
 

@@ -10,7 +10,7 @@ import com.example.pilotlogbook.domain.entities.DailyFlight
 import com.example.pilotlogbook.data.room.entities.dailyflight.DailyFlightEntity
 import com.example.pilotlogbook.data.validation.DailyFlightForm
 import com.example.pilotlogbook.domain.repositories.DailyFlightRepository
-import kotlinx.coroutines.delay
+import com.example.pilotlogbook.utils.SortType
 import kotlinx.coroutines.flow.Flow
 
 class DailyFlightRealisation(private val db: PilotLogBookDataBase): DailyFlightRepository {
@@ -24,25 +24,28 @@ class DailyFlightRealisation(private val db: PilotLogBookDataBase): DailyFlightR
 
     override suspend fun addDailyFlightLog(dailyFlightForm: DailyFlightForm) {
         dailyFlightForm.validate()
-        delay(1000)
         val entity = DailyFlightEntity.fromDailyFlightForm(dailyFlightForm)
         db.getDailyFlightDao().addDailyFlightLog(entity)
+        db.getDailyFlightDao().updateTotalTimeOfFlight()
     }
 
-    override fun getPagedDailyFlight(searchBy: String): Flow<PagingData<DailyFlight>> {
-
+    override fun getPagedDailyFlight(sortType: SortType, searchBy: String): Flow<PagingData<DailyFlight>> {
         return Pager(
             config = PagingConfig(
-                pageSize = 2,
-                enablePlaceholders = false
+                pageSize = 10,
+                enablePlaceholders = true
             ),
-            pagingSourceFactory = {DailyFlightPagingSource(db.getDailyFlightDao(), 2, searchBy)}
+            pagingSourceFactory = {DailyFlightPagingSource(db.getDailyFlightDao(), db.getSortDailyFlightDao(), sortType, 10, searchBy)}
         ).flow
     }
 
     override suspend fun updateTotalTimeOfFlight() {
         db.getDailyFlightDao().updateTotalTimeOfFlight()
     }
+
+
+
+
 }
 
 

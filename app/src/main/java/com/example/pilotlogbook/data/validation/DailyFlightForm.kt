@@ -1,9 +1,7 @@
 package com.example.pilotlogbook.data.validation
 
 import com.example.pilotlogbook.domain.EmptyAddFlightFieldException
-import com.example.pilotlogbook.domain.NotValidInputTimeException
 import com.example.pilotlogbook.domain.settings.AddDailyFlightField
-import java.util.regex.Pattern
 
 data class DailyFlightForm(
     val date: Long?,
@@ -13,22 +11,22 @@ data class DailyFlightForm(
     val arrivalTime: Long?,
     val aircraftModel: String,
     val aircraftRegistration: String,
-    val singlePilotTimeSe: Double?,
-    val singlePilotTimeMe: Double?,
-    val multiPilotTime: Double?,
+    val singlePilotTimeSe: Long?,
+    val singlePilotTimeMe: Long?,
+    val multiPilotTime: Long?,
     val totalTimeOfFlight: Long?,
     val picName: String?,
     val landingsDay: Int?,
     val landingsNight: Int?,
-    val operationalConditionTimeNight: Double?,
-    val operationalConditionTimeIfr: Double?,
-    val pilotFunctionTimePilotInComand: Double?,
-    val pilotFunctionTimePilotCoPilot: Double?,
-    val pilotFunctionTimePilotDual: Double?,
-    val pilotFunctionTimePilotInstructor: Double?,
+    val operationalConditionTimeNight: Long?,
+    val operationalConditionTimeIfr: Long?,
+    val pilotFunctionTimePilotInComand: Long?,
+    val pilotFunctionTimePilotCoPilot: Long?,
+    val pilotFunctionTimePilotDual: Long?,
+    val pilotFunctionTimePilotInstructor: Long?,
     val syntheticTrainingDevicesSessionDate: String?,
     val syntheticTrainingDevicesSessionType: String?,
-    val syntheticTrainingDevicesSessionTotalTimeOfSession: Double?,
+    val syntheticTrainingDevicesSessionTotalTimeOfSession: Long?,
     val remarksAndEndorsements: String?
 ){
 

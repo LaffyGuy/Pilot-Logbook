@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".presentation.screens.fragments.logbook.ProfileFragment">
+    tools:context=".presentation.screens.fragments.logbook.profile.ProfileFragment">
 
 
 
@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="5dp"
-            android:text="Name LastName"
+            android:text="@string/profile_name_lastName"
             android:textColor="@color/white"/>
 
         <TextView
@@ -41,7 +41,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="5dp"
-            android:text="Email"
+            android:text="@string/profile_email"
             android:textSize="14sp"
             android:textColor="@color/white"/>
 
@@ -59,7 +59,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Total daily flight time"
+            android:text="@string/profile_total_daily_flight_time_title"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
             android:textStyle="bold"
@@ -71,7 +71,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:textStyle="bold"
-            android:text="0:30"
+            android:text="@string/profile_total_daily_flight_time"
             android:textColor="@color/black"
             android:textSize="30sp"/>
 
@@ -89,7 +89,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Total daily flight time"
+            android:text="@string/profile_total_daily_flight_title"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
             android:textStyle="bold"
@@ -100,7 +100,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="1"
+            android:text="@string/profile_total_daily_flight"
             android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="30sp"/>

@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="150dp"
         android:textSize="30sp"
-        android:text="Sign In"
+        android:text="@string/sign_in"
         android:textColor="@color/white"
         android:textStyle="bold"/>
 
@@ -30,7 +30,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvEmail"
         android:layout_marginTop="50dp"
-        android:hint="Email"
+        android:hint="@string/sign_in_email"
         android:background="@drawable/white_background_edit_text"
         android:paddingStart="5dp"
         android:drawableStart="@drawable/ic_email"
@@ -44,7 +44,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/etEmail"
         android:layout_marginTop="50dp"
-        android:hint="Password"
+        android:hint="@string/sign_in_password"
         android:background="@drawable/white_background_edit_text"
         android:paddingStart="5dp"
         android:drawableStart="@drawable/ic_lock"
@@ -58,7 +58,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/etPassword"
         android:layout_marginTop="50dp"
-        android:text="Log In"/>
+        android:text="@string/sign_in_login"/>
 
 
     <ProgressBar
@@ -78,7 +78,7 @@
         app:layout_constraintEnd_toEndOf="@id/btnLogin"
         app:layout_constraintTop_toBottomOf="@id/btnLogin"
         app:layout_constraintStart_toStartOf="@id/btnLogin"
-        android:text="Don't have an account?"
+        android:text="@string/sign_in_dont_have_account"
         android:layout_marginTop="20dp"
         android:textColor="@color/white"
         android:textSize="16sp"/>

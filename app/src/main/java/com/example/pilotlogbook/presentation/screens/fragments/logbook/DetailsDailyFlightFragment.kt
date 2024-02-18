@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.navArgs
-import com.example.pilotlogbook.R
 import com.example.pilotlogbook.databinding.FragmentDetailsDailyFlightBinding
 import com.example.pilotlogbook.utils.convertLongToDate
 import com.example.pilotlogbook.utils.convertLongToTime
@@ -40,22 +39,22 @@ class DetailsDailyFlightFragment : Fragment() {
             tvArrivalTimeValue.text = convertLongToTime(args.dailyFlight.arrivalTime!!)
             tvAircraftModelValue.text = args.dailyFlight.aircraftModel
             tvAircraftRegistrationValue.text = args.dailyFlight.aircraftRegistration
-            tvSinglePilotTimeSEValue.text = args.dailyFlight.singlePilotTimeSe.toString()
-            tvSinglePilotTimeMEValue.text = args.dailyFlight.singlePilotTimeMe.toString()
-            tvMultiPilotTimeValue.text = args.dailyFlight.multiPilotTime.toString()
-            tvTotalTimeOfFlightValue.text = args.dailyFlight.totalTimeOfFlight.toString()
+            tvSinglePilotTimeSEValue.text = args.dailyFlight.singlePilotTimeSe?.toString() ?: ""
+            tvSinglePilotTimeMEValue.text = args.dailyFlight.singlePilotTimeMe?.toString() ?: ""
+            tvMultiPilotTimeValue.text = args.dailyFlight.multiPilotTime?.toString() ?: ""
+            tvTotalTimeOfFlightValue.text = convertLongToTime(args.dailyFlight.totalTimeOfFlight!!)
             tvPicNameValue.text = args.dailyFlight.picName
-            tvDayValue.text = args.dailyFlight.landingsDay.toString()
-            tvNightValue.text = args.dailyFlight.landingsNight.toString()
-            tvOPTNightValue.text = args.dailyFlight.operationalConditionTimeNight.toString()
-            tvOPTIfrValue.text = args.dailyFlight.operationalConditionTimeIfr.toString()
-            tvPilotInComandValue.text = args.dailyFlight.pilotFunctionTimePilotInComand.toString()
-            tvCoPilotValue.text = args.dailyFlight.pilotFunctionTimePilotCoPilot.toString()
-            tvDualValue.text = args.dailyFlight.pilotFunctionTimePilotDual.toString()
-            tvInstructorValue.text = args.dailyFlight.pilotFunctionTimePilotInstructor.toString()
+            tvDayValue.text = args.dailyFlight.landingsDay?.toString() ?: ""
+            tvNightValue.text = args.dailyFlight.landingsNight?.toString() ?: ""
+            tvOPTNightValue.text = args.dailyFlight.operationalConditionTimeNight?.toString() ?: ""
+            tvOPTIfrValue.text = args.dailyFlight.operationalConditionTimeIfr?.toString() ?: ""
+            tvPilotInComandValue.text = args.dailyFlight.pilotFunctionTimePilotInComand?.toString() ?: ""
+            tvCoPilotValue.text = args.dailyFlight.pilotFunctionTimePilotCoPilot?.toString() ?: ""
+            tvDualValue.text = args.dailyFlight.pilotFunctionTimePilotDual?.toString() ?: ""
+            tvInstructorValue.text = args.dailyFlight.pilotFunctionTimePilotInstructor?.toString() ?: ""
             tvSTDSDateValue.text = args.dailyFlight.syntheticTrainingDevicesSessionDate
             tvSTDSTypeValue.text = args.dailyFlight.syntheticTrainingDevicesSessionType
-            tvSTDSTotalTimeOfSessionValue.text = args.dailyFlight.syntheticTrainingDevicesSessionTotalTimeOfSession.toString()
+            tvSTDSTotalTimeOfSessionValue.text = args.dailyFlight.syntheticTrainingDevicesSessionTotalTimeOfSession?.toString() ?: ""
             tvRemarksAndEndorsementsValue.text = args.dailyFlight.remarksAndEndorsements
         }
     }
